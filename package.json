@@ -1,0 +1,14 @@
+{
+  "name": "shopery",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build-ui": "pnpm --filter shared-ui build",
+    "server": "pnpm --filter be_api start",
+    "start-web": "pnpm --filter fe_web dev",
+    "start-admin": "pnpm --filter fe_admin dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

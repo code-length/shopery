@@ -1,0 +1,36 @@
+{
+  "name": "shared-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/shared-ui.umd.js",
+  "module": "./dist/shared-ui.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/shared-ui.es.js",
+      "require": "./dist/shared-ui.umd.js"
+    }
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^19.0.0",
+    "typescript": "^5",
+    "vite": "^6.1.0"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "sass": "^1.84.0",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
+  }
+}
