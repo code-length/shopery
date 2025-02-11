@@ -1,13 +1,46 @@
 .button {
-  background-color: $primary;
-  border-radius: 0.5rem;
-  color: $white;
+  border-radius: $border-radius-button;
   cursor: pointer;
   display: inline-flex;
-  font-size: 1rem;
-  font-weight: 500;
   justify-content: center;
-  line-height: 1.5rem;
-  padding: 0.5rem 1rem;
   text-align: center;
+  font-weight: $weight-600;
+}
+.fill{
+  background-color: $primary;
+  border: none;
+  color: $white;
+  &:hover{
+    background-color: $tertiary;
+  }
+}
+.border{
+  background-color: $white;
+  border: 2px solid $primary;
+  color: $primary;
+  &:hover{
+    border-color: $tertiary;
+    color: $tertiary;
+  }
+}
+.ghost{
+  background-color: #56AC591A;
+  border: none;
+  color: $primary;
+  &:hover{
+    background-color: #2C742F33;
+    color: $tertiary;
+  }
+}
+.small{
+  padding: 10px 24px;
+  font-size: $font-size-tn;
+}
+.medium{
+  padding: 14px 32px;
+  font-size: $font-size-sm;
+}
+.large{
+  padding: 16px 40px;
+  font-size: $font-size-md;
 }

@@ -23,7 +23,7 @@ export default function Index() {
           <Button
             label='test'
             onClick={() => console.log('test')}
-            fill='primary'
+            variant='ghost'
             size='large'
           />
           <div id='hero' className='rounded'>

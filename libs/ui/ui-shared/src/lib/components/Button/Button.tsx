@@ -1,23 +1,29 @@
-import React from 'react';
+import { clsx } from 'clsx';
+import React, { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.scss';
 
-export interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
-  onClick: () => void;
-  fill: string;
-  size: string;
+  variant?: 'fill' | 'border' | 'ghost';
+  size?: 'small' | 'medium' | 'large';
 }
 
 export const Button: React.FC<ButtonProps> = ({
   label,
-  onClick,
-  fill,
+  variant,
   size,
+  type = 'button',
+  ...rest
 }) => {
   return (
     <button
-      onClick={onClick}
-      className={styles.button + ' ' + styles[fill] + ' ' + styles[size]}
+      type={type}
+      className={clsx(
+        styles.button,
+        variant && styles[variant],
+        size && styles[size]
+      )}
+      {...rest}
     >
       {label}
     </button>

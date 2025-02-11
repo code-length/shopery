@@ -1,53 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 //Color
-$soft-primary: #84D187;
 $primary: #00B207;
-$hard-primary: #2C742F;
+$secondary: #84D187;
+$tertiary: #2C742F;
 $warning: #FF8A00;
 $danger: #EA4B48;
 $white: #FFFFFF;
 
 //Gray
-$gray9: #1A1A1A;
-$gray8: #333333;
-$gray7: #4D4D4D;
-$gray6: #666666;
-$gray5: #828282;
-$gray4: #999999;
-$gray3: #B3B3B3;
-$gray2: #CCCCCC;
-$gray1: #E5E5E5;
-$gray0: #F2F2F2;
+$gray-900: #1A1A1A;
+$gray-800: #333333;
+$gray-700: #4D4D4D;
+$gray-600: #666666;
+$gray-500: #828282;
+$gray-400: #999999;
+$gray-300: #B3B3B3;
+$gray-200: #CCCCCC;
+$gray-100: #E5E5E5;
+$gray-0: #F2F2F2;
 
 //Green gray
-$green-gray9: #002603;
-$green-gray8: #173B1A;
-$green-gray7: #2B572E;
-$green-gray6: #406B42;
-$green-gray5: #618062;
-$green-gray4: #7A997C;
-$green-gray3: #96B297;
-$green-gray2: #B4CCB4;
-$green-gray1: #DAE5DA;
-$green-gray0: #EDF2EE;
+$green-gray-900: #002603;
+$green-gray-800: #173B1A;
+$green-gray-700: #2B572E;
+$green-gray-600: #406B42;
+$green-gray-500: #618062;
+$green-gray-400: #7A997C;
+$green-gray-300: #96B297;
+$green-gray-200: #B4CCB4;
+$green-gray-100: #DAE5DA;
+$green-gray-0: #EDF2EE;
 
-//Typography
-$font-family: 'Poppins', sans-serif;
-$display: 72px;
-$heading-1: 56px;
-$heading-2: 48px;
-$heading-3: 40px;
-$heading-4: 36px;
-$heading-5: 32px;
-$body-tiny: 12px;
-$body-small: 14px;
-$body-mediun: 16px;
-$body-large: 18px;
-$body-xl: 20px;
-$body-xxl: 24px;
+//Heading
+$heading-1: 72px;
+$heading-2: 56px;
+$heading-3: 48px;
+$heading-4: 40px;
+$heading-5: 36px;
+$heading-6: 32px;
+
+//Body
+$font-size-tn: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+
+//Font weight
 $weight-300: 300;
 $weight-400: 400;
 $weight-500: 500;
 $weight-600: 600;
 $weight-700: 700;
+
+
+//Border radius
+$border-radius-button: 43px;
+$border-radius-button-rounded: 50%;
+$border-radius-card-primary: 6px;
+$border-radius-card-secondary: 8px;
+
+//Breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+$breakpoint-xxxl: 1920px;
