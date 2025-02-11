@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@shopery/ui-shared": ["libs/ui/ui-shared/src/index.ts"]
+      "@shopery/ui-shared": ["libs/ui/ui-shared/src/index.ts"],
+      "@styles/*": ["libs/styles/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
