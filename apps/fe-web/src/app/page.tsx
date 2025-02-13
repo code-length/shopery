@@ -21,11 +21,12 @@ export default function Index() {
             </h1>
           </div>
           <Button
-            label='test'
             onClick={() => console.log('test')}
             variant='ghost'
-            size='large'
-          />
+            size='medium'
+          >
+            Test
+          </Button>
           <div id='hero' className='rounded'>
             <div className='text-container'>
               <h2>

@@ -3,15 +3,15 @@ import React, { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.scss';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  children: string;
   variant?: 'fill' | 'border' | 'ghost';
   size?: 'small' | 'medium' | 'large';
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  label,
-  variant,
-  size,
+  children,
+  variant = 'fill',
+  size = 'small',
   type = 'button',
   ...rest
 }) => {
@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
       )}
       {...rest}
     >
-      {label}
+      {children}
     </button>
   );
 };

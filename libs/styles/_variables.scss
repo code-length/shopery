@@ -1,34 +1,34 @@
 //Color
-$primary: #00B207;
-$secondary: #84D187;
-$tertiary: #2C742F;
-$warning: #FF8A00;
-$danger: #EA4B48;
-$white: #FFFFFF;
+$primary: #00b207;
+$secondary: #84d187;
+$tertiary: #2c742f;
+$warning: #ff8a00;
+$danger: #ea4b48;
+$white: #ffffff;
 
 //Gray
-$gray-900: #1A1A1A;
+$gray-900: #1a1a1a;
 $gray-800: #333333;
-$gray-700: #4D4D4D;
+$gray-700: #4d4d4d;
 $gray-600: #666666;
 $gray-500: #828282;
 $gray-400: #999999;
-$gray-300: #B3B3B3;
-$gray-200: #CCCCCC;
-$gray-100: #E5E5E5;
-$gray-0: #F2F2F2;
+$gray-300: #b3b3b3;
+$gray-200: #cccccc;
+$gray-150: #e5e5e5;
+$gray-100: #f2f2f2;
 
 //Green gray
 $green-gray-900: #002603;
-$green-gray-800: #173B1A;
-$green-gray-700: #2B572E;
-$green-gray-600: #406B42;
+$green-gray-800: #173b1a;
+$green-gray-700: #2b572e;
+$green-gray-600: #406b42;
 $green-gray-500: #618062;
-$green-gray-400: #7A997C;
-$green-gray-300: #96B297;
-$green-gray-200: #B4CCB4;
-$green-gray-100: #DAE5DA;
-$green-gray-0: #EDF2EE;
+$green-gray-400: #7a997c;
+$green-gray-300: #96b297;
+$green-gray-200: #b4ccb4;
+$green-gray-150: #dae5da;
+$green-gray-100: #edf2ee;
 
 //Heading
 $heading-1: 72px;
@@ -39,7 +39,7 @@ $heading-5: 36px;
 $heading-6: 32px;
 
 //Body
-$font-size-tn: 12px;
+$font-size-xs: 12px;
 $font-size-sm: 14px;
 $font-size-md: 16px;
 $font-size-lg: 18px;
@@ -53,18 +53,8 @@ $weight-500: 500;
 $weight-600: 600;
 $weight-700: 700;
 
-
 //Border radius
 $border-radius-button: 43px;
 $border-radius-button-rounded: 50%;
 $border-radius-card-primary: 6px;
 $border-radius-card-secondary: 8px;
-
-//Breakpoints
-$breakpoint-xs: 320px;
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
-$breakpoint-xxl: 1440px;
-$breakpoint-xxxl: 1920px;
