@@ -1,0 +1,75 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "commands.workspaceCommands": {
+      "shopery": {
+        "nestedItems": {
+          "back-end": {
+            "nestedItems": {
+              "be-api": {
+                "icon": "play",
+                "command": "commands.runInTerminal",
+                "args": {
+                  "name": "be-api",
+                  "text": "pnpm serve be-api",
+                  "reveal": true,
+                  "waitForExit": true,
+                  "reuse": "newest"
+                }
+              }
+            }
+          },
+          "front-end": {
+            "icon": "plug",
+            "nestedItems": {
+              "fe-web": {
+                "icon": "play",
+                "command": "commands.runInTerminal",
+                "args": {
+                  "name": "fe-web",
+                  "text": "pnpm dev fe-web",
+                  "reveal": true,
+                  "waitForExit": true,
+                  "reuse": "newest"
+                },
+                "statusBar": {
+                  "text": "fe-web",
+                  "tooltip": "fe-web",
+                  "color": "#fff",
+                  "background": "#000"
+                }
+              },
+              "fe-admin": {
+                "icon": "play",
+                "command": "commands.runInTerminal",
+                "args": {
+                  "name": "fe-admin",
+                  "text": "pnpm dev fe-admin",
+                  "reveal": true,
+                  "waitForExit": true,
+                  "reuse": "newest"
+                },
+                "statusBar": {
+                  "text": "fe-admin",
+                  "tooltip": "fe-admin",
+                  "color": "#fff",
+                  "background": "#000"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "cSpell.words": []
+  }
+}
