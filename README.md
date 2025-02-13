@@ -41,7 +41,7 @@ pnpm lint be-api
   <a href="https://www.typescriptlang.org"><img src="https://www.svgrepo.com/show/374146/typescript-official.svg" width="50" height="50" title="TypeScript"></a>
   <a href="https://firebase.google.com/docs/auth"><img src="https://www.svgrepo.com/show/373595/firebase.svg" width="50" height="50" title="Firebase Auth"></a>
   <a href="https://zustand-demo.pmnd.rs"><img src="https://raw.githubusercontent.com/pmndrs/zustand/refs/heads/main/examples/demo/public/favicon.ico" width="50" height="50" title="Zustand"></a>
-  <a href="https://zustand-demo.pmnd.rs"><img src="https://images.seeklogo.com/logo-png/43/1/react-query-logo-png_seeklogo-435661.png" width="50" height="50" title="React Query"></a>
+  <a href="https://tanstack.com/query/latest"><img src="https://miro.medium.com/v2/resize:fit:1400/1*elhu-42TzQEdsFjKDbQhhA.png" width="50" height="50" title="React Query"></a>
   <a href="https://stripe.com"><img src="https://cdn.prod.website-files.com/63f6e52346a353ca1752970e/64a567b7500fa85b4f95a747_stripe_logo_icon_167962.png" width="50" height="50" title="Stripe"></a>
   <a href="https://ant.design"><img src="https://camo.githubusercontent.com/f6bf5ee2b30310ad83a81212b9be69bdc2bb577f2ebe868ad89f8586b4721ffc/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f726d73706f7274616c2f4b4470677667754d704766716148506a6963524b2e737667" width="50" height="50" title="Ant Design UI"></a>
 </div>
