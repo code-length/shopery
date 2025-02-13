@@ -25,9 +25,9 @@ pnpm prettier-all
 To run ESLint:
 
 ```sh
-pnpm nx lint fe-web
-pnpm nx lint fe-admin
-pnpm nx lint be-api
+pnpm lint fe-web
+pnpm lint fe-admin
+pnpm lint be-api
 ```
 
 ---
@@ -81,22 +81,12 @@ shopery/
 │
 ├── libs/
 │   ├── ui-shared/  # Shared UI components
-│   ├── utils/      # Shared utility functions
-│   └── services/   # API & business logic
+│   └── shared/     #Shared function and business logic
 │
 ├── package.json
 ├── nx.json
 └── README.md
 ```
-
----
-
-## 📌 Notes
-
-- Web and Admin projects use **Tailwind UI** for styling.
-- The authentication system is handled using **Firebase Auth** and **JWT**.
-- Backend API is built with **Fastify**, using **MongoDB** as the database and **Redis** for caching.
-- Payments are handled via **Stripe** or **Firebase Payments**.
 
 ---
 

@@ -6,7 +6,8 @@
     "serve": "nx serve",
     "start": "nx start",
     "dev": "nx dev",
-    "prettier-all": "prettier --write ."
+    "prettier-all": "prettier --write .",
+    "lint": "nx lint"
   },
   "private": true,
   "dependencies": {
