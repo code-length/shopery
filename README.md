@@ -63,7 +63,7 @@ pnpm lint be-api
   <a href="https://www.typescriptlang.org"><img src="https://www.svgrepo.com/show/374146/typescript-official.svg" width="50" height="50" title="TypeScript"></a>
   <a href="https://www.mongodb.com"><img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-2.svg" width="50" height="50" title="MongoDB"></a>
   <a href="https://firebase.google.com/docs/auth"><img src="https://www.svgrepo.com/show/373595/firebase.svg" width="50" height="50" title="Firebase Auth"></a>
-  <a href="https://jwt.io"><img src="https://seeklogo.com/images/J/jwt-logo-11B708E375-seeklogo.com.png" width="50" height="50" title="JWT Auth"></a>
+  <a href="https://jwt.io"><img src="https://img.icons8.com/?size=512&id=rHpveptSuwDz&format=png" width="50" height="50" title="JWT Auth"></a>
   <a href="https://redis.io"><img src="https://cdn4.iconfinder.com/data/icons/redis-2/1451/Untitled-2-512.png" width="50" height="50" title="Redis"></a>
   <a href="https://fastify.dev"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaORCd00C-ymGynrRdk0k3tgfc80B_qdBM7Q&s" width="50" height="50" title="Fastify"></a>
 </div>
