@@ -1,23 +1,24 @@
 import Fastify from 'fastify';
-import { app } from './app/app';
+import dbConnector from './app/plugins/db'
+import productRoutes from './app/routes/products';
+import axios from 'axios';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 5000;
+const fastify = Fastify({ logger: true });
 
-// Instantiate Fastify with some config
-const server = Fastify({
-  logger: true,
+fastify.register(dbConnector);
+fastify.register(productRoutes);
+
+fastify.get('/', async () => {
+  return { message: 'Server is running' };
 });
 
-// Register your application as a normal plugin.
-server.register(app);
-
-// Start listening.
-server.listen({ port, host }, (err) => {
-  if (err) {
-    server.log.error(err);
+const start = async () => {
+  try {
+    await fastify.listen({ port: 3000, host: '0.0.0.0' });
+  } catch (err) {
+    fastify.log.error(err);
     process.exit(1);
-  } else {
-    console.log(`[ ready ] http://${host}:${port}`);
   }
-});
+};
+
+start();
