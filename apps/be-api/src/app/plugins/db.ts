@@ -10,13 +10,6 @@ interface DbPluginOptions {
     timeout?: number;
 }
 
-// Declare module for fastify to recognize our decorated property
-declare module 'fastify' {
-    interface FastifyInstance {
-        db: typeof mongoose
-    }
-}
-
 const dbConnector: FastifyPluginAsync<DbPluginOptions> = async (
     fastify: FastifyInstance,
     options: DbPluginOptions = {}
