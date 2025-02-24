@@ -1,0 +1,25 @@
+.Sidebar{
+    background-color: #a2a2a2;
+    min-height: 100vh;
+    min-width: 15vw;
+}
+.List{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.Link{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    &:hover{
+        background-color: black;
+    }
+    &:active{
+        text-decoration: none;
+    }
+}
+.Active{
+    background-color: black;
+}
