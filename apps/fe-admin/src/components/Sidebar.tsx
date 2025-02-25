@@ -33,6 +33,7 @@ const Sidebar = () => {
   return (
     <nav className={styles.Sidebar}>
       <h2>Admin kit</h2>
+      <p>Pages</p>
       <ul className={styles.List}>
         {links.map((link, index) => (
           <li key={index} className={styles.Item}>
@@ -47,7 +48,7 @@ const Sidebar = () => {
               <img
                 src={link.img_link}
                 alt={link.name}
-                width={35}
+                width={25}
                 className={styles.LinkImg}
               />
               {link.name}
