@@ -1,25 +1,40 @@
-.Sidebar{
-    background-color: #a2a2a2;
-    min-height: 100vh;
-    min-width: 15vw;
-}
-.List{
+.Sidebar {
+  background-color: $gray-900;
+  min-height: 100vh;
+  height: 100%;
+  min-width: 15vw;
+  h2 {
+    font-size: $heading-4;
+    color: $white;
+    font-weight: $weight-500;
+    padding: 20px;
+  }
+  ul {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-.Link{
+  }
+  a {
     width: 100%;
+    padding: 10px;
     display: flex;
     align-items: center;
     text-decoration: none;
-    &:hover{
-        background-color: black;
+    color: $white;
+    font-size: $font-size-md;
+    font-weight: $weight-500;
+    &:hover {
+      background-color: $gray-800;
     }
-    &:active{
-        text-decoration: none;
+    &:active {
+      text-decoration: none;
     }
+    img {
+      filter: brightness(0) invert(1);
+      margin-right: 10px;
+    }
+  }
 }
-.Active{
-    background-color: black;
+.Active {
+  background-color: $gray-700;
 }

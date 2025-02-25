@@ -32,6 +32,7 @@ const links: Link[] = [
 const Sidebar = () => {
   return (
     <nav className={styles.Sidebar}>
+      <h2>Admin kit</h2>
       <ul className={styles.List}>
         {links.map((link, index) => (
           <li key={index} className={styles.Item}>
