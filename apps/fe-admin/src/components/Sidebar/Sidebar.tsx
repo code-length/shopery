@@ -7,7 +7,6 @@ import Order from '../../assets/images/order.svg';
 import User from '../../assets/images/user.svg';
 import Navigation from '../Navigation/Navigation';
 import UserComponent from '../User/User';
-import { randomUUID } from 'crypto';
 
 const Sidebar = () => {
   const SIDEBAR_LINKS: Link[] = [
