@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
+
 export interface Link {
-    name: string,
-    link: string,
-    img_link: string,
-    active: boolean,
+  name: string;
+  link: string;
+  imgLink: ReactElement;
 }

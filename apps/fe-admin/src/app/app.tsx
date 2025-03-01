@@ -1,10 +1,10 @@
-import PageLayout from '../layouts/PageLayout';
-import Sidebar from '../components/Sidebar';
+import { PageLayout } from '../layouts';
+import { Sidebar } from '../components';
 import styles from './app.module.scss';
 
 const App = () => {
   return (
-    <div className={styles.Parent}>
+    <div className={styles.app}>
       <Sidebar />
       <PageLayout />
     </div>

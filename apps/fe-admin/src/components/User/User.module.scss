@@ -1,0 +1,21 @@
+.user {
+  color: $white;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: auto;
+  flex-direction: column;
+  align-items: center;
+}
+.userInfo {
+  display: flex;
+  padding-bottom: 10px;
+}
+.userName {
+  padding-right: 10px;
+}
+.userIcon {
+  width: 25px;
+  filter: invert(1);
+}
