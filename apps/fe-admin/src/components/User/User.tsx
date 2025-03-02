@@ -1,22 +1,19 @@
 import React from 'react';
 import { Button } from '@shopery/ui-shared';
 import styles from './User.module.scss';
-import { UserInterface } from '../../types';
+import { User } from '../../types';
+import UserAvatarIcon from '@assets/icons/userAvatar.svg?react';
 
 interface UserProps {
-  user: UserInterface;
+  user: User;
 }
 
-const User: React.FC<UserProps> = ({ user }) => {
+const UserComponent: React.FC<UserProps> = ({ user }) => {
   return (
     <div className={styles.user}>
       <div className={styles.userInfo}>
         <p className={styles.userName}>{user.name}</p>
-        <img
-          src='https://www.svgrepo.com/show/109737/profile-user.svg'
-          alt='user-icon'
-          className={styles.userIcon}
-        />
+        <UserAvatarIcon className={styles.userIcon} />
       </div>
       <Button size='small' variant='fill'>
         {'<- Log Out'}
@@ -25,4 +22,4 @@ const User: React.FC<UserProps> = ({ user }) => {
   );
 };
 
-export default User;
+export default UserComponent;

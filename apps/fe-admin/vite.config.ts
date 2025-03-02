@@ -20,6 +20,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@styles': path.resolve(__dirname, '../../libs/styles'),
+      '@assets': path.resolve(__dirname, './src/assets/'),
     },
   },
   css: {

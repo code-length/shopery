@@ -1,8 +1,12 @@
 import React from 'react';
-import { NavigationProps } from '../../types';
 import clsx from 'clsx';
 import styles from './Navigation.module.scss';
 import { useLocation, NavLink } from 'react-router-dom';
+import { Link } from '../../types';
+
+interface NavigationProps {
+  links: Link[];
+}
 
 const Navigation: React.FC<NavigationProps> = ({ links }) => {
   const location = useLocation();
@@ -21,7 +25,7 @@ const Navigation: React.FC<NavigationProps> = ({ links }) => {
                 [styles.active]: isActive(link.link),
               })}
             >
-              {link.imgLink}
+              {link.iconElement}
               {link.name}
             </NavLink>
           </li>

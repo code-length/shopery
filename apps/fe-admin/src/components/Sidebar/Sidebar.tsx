@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Sidebar.module.scss';
-import { Link, UserInterface } from '../../types';
-import Dashboard from '../../assets/images/dashboard.svg';
-import Product from '../../assets/images/product.svg';
-import Order from '../../assets/images/order.svg';
-import User from '../../assets/images/user.svg';
+import { Link, User } from '../../types';
+import DashboardIcon from '@assets/icons/dashboard.svg?react';
+import ProductIcon from '@assets/icons/product.svg?react';
+import OrderIcon from '@assets/icons/order.svg?react';
+import UserIcon from '@assets/icons/user.svg?react';
 import Navigation from '../Navigation/Navigation';
 import UserComponent from '../User/User';
 
@@ -13,35 +13,33 @@ const Sidebar = () => {
     {
       name: 'Dashboard',
       link: '/',
-      imgLink: (
-        <img src={Dashboard} alt='dashboard-icon' className={styles.icon} />
-      ),
+      iconElement: <DashboardIcon className={styles.icon} />,
     },
     {
       name: 'Products',
       link: '/products',
-      imgLink: <img src={Product} alt='product-icon' className={styles.icon} />,
+      iconElement: <ProductIcon className={styles.icon} />,
     },
     {
       name: 'Orders',
       link: '/orders',
-      imgLink: <img src={Order} alt='order-icon' className={styles.icon} />,
+      iconElement: <OrderIcon className={styles.icon} />,
     },
     {
       name: 'Users',
       link: '/users',
-      imgLink: <img src={User} alt='user-icon' className={styles.icon} />,
+      iconElement: <UserIcon className={styles.icon} />,
     },
   ];
 
-  const USERS: UserInterface[] = [
+  const USERS: User[] = [
     {
-      id: window.crypto.randomUUID(),
+      id: '1',
       name: 'Dmytro',
       role: 'Admin',
     },
     {
-      id: window.crypto.randomUUID(),
+      id: '2',
       name: 'Yehor',
       role: 'Admin',
     },
