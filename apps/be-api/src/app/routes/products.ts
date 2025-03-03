@@ -1,5 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { Product } from '../models/product.models';
+import { ObjectId } from 'mongodb';
 
 export default async function productRoutes(fastify: FastifyInstance) {
   fastify.get('/products', async (_, reply) => {
@@ -7,15 +8,36 @@ export default async function productRoutes(fastify: FastifyInstance) {
     return reply.send(products);
   });
 
-  fastify.get('/products/:id', async (request, reply) => {
-    try {
-      const product = await Product.findById((request.params as any).id);
-      if (!product) return reply.status(404).send({ message: 'Not Found' });
-      return reply.send(product);
-    } catch (error) {
-      return reply.status(500).send(error);
+  fastify.get(
+    '/products/:id',
+    {
+      schema: {
+        params: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', pattern: '^[0-9a-fA-F]{24}$' }, // Validate as MongoDB ObjectId
+          },
+          required: ['id'],
+        },
+      },
+    },
+    async (request, reply) => {
+      try {
+        const { id } = request.params;
+
+        if (!ObjectId.isValid(id)) {
+          return reply.status(400).send({ message: 'Invalid ID format' });
+        }
+
+        const product = await Product.findById(id);
+        if (!product) return reply.status(404).send({ message: 'Not Found' });
+
+        return reply.send(product);
+      } catch (error) {
+        return reply.status(500).send({ message: 'Server error', error });
+      }
     }
-  });
+  );
 
   fastify.post(
     '/products',
@@ -34,7 +56,14 @@ export default async function productRoutes(fastify: FastifyInstance) {
             brand: { type: 'string' },
             img: { type: 'string' },
           },
-          required: ['name', 'price', 'categoriesId', 'rating', 'popularTag', 'quantityInStock'],
+          required: [
+            'name',
+            'price',
+            'categoriesId',
+            'rating',
+            'popularTag',
+            'quantityInStock',
+          ],
         },
       },
     },
@@ -49,20 +78,49 @@ export default async function productRoutes(fastify: FastifyInstance) {
     }
   );
 
-  fastify.put('/products/:id', async (request, reply) => {
-    try {
-      const updatedProduct = await Product.findByIdAndUpdate(
-        (request.params as any).id,
-        request.body,
-        { new: true }
-      );
-      if (!updatedProduct)
-        return reply.status(404).send({ message: 'Not Found' });
-      return reply.send(updatedProduct);
-    } catch (error) {
-      return reply.status(500).send(error);
+  fastify.put(
+    '/products/:id',
+    {
+      schema: {
+        body: {
+          type: 'object',
+          properties: {
+            name: { type: 'string' },
+            price: { type: 'number' },
+            description: { type: 'string' },
+            vategories: { type: 'number' },
+            rating: { type: 'number' },
+            popularTag: { type: 'array' },
+            quantityInStock: { type: 'number' },
+            brand: { type: 'string' },
+            img: { type: 'string' },
+          },
+          required: [
+            'name',
+            'price',
+            'categoriesId',
+            'rating',
+            'popularTag',
+            'quantityInStock',
+          ],
+        },
+      },
+    },
+    async (request, reply) => {
+      try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+          (request.params as any).id,
+          request.body,
+          { new: true }
+        );
+        if (!updatedProduct)
+          return reply.status(404).send({ message: 'Not Found' });
+        return reply.send(updatedProduct);
+      } catch (error) {
+        return reply.status(500).send(error);
+      }
     }
-  });
+  );
 
   fastify.delete('/products/:id', async (request, reply) => {
     try {
