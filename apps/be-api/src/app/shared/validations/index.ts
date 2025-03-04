@@ -1,1 +1,1 @@
-export * from './idParam.schema';
+export * from './id-param.schema';
