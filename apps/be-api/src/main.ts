@@ -1,23 +1,28 @@
+import dotenv from 'dotenv';
 import Fastify from 'fastify';
-import { app } from './app/app';
+import { healthCheckRoutes } from './app/modules/health-check';
+import { productAdminRoutes } from './app/modules/products';
+import { userAdminRoutes } from './app/modules/users/routes';
+import dbConnector from './app/shared/plugins/db';
+dotenv.config();
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 5000;
+const fastify = Fastify({ logger: true });
 
-// Instantiate Fastify with some config
-const server = Fastify({
-  logger: true,
-});
+fastify.register(dbConnector);
+fastify.register(productAdminRoutes);
+fastify.register(userAdminRoutes);
+fastify.register(healthCheckRoutes);
 
-// Register your application as a normal plugin.
-server.register(app);
-
-// Start listening.
-server.listen({ port, host }, (err) => {
-  if (err) {
-    server.log.error(err);
+const start = async () => {
+  try {
+    await fastify.listen({
+      port: parseFloat(process.env.BE_ADMIN_PORT),
+      host: '0.0.0.0',
+    });
+  } catch (err) {
+    fastify.log.error(err);
     process.exit(1);
-  } else {
-    console.log(`[ ready ] http://${host}:${port}`);
   }
-});
+};
+
+start();
