@@ -7,7 +7,6 @@ export class GetUserDTO {
   email: string;
   phone: string;
   role: Role;
-  passwordHash: string;
 
   constructor(data: Partial<GetUserDTO>) {
     Object.assign(this, data);

@@ -8,7 +8,7 @@ interface UserParams {
   id: string;
 }
 
-export async function userRoutes(fastify: FastifyInstance) {
+export async function userAdminRoutes(fastify: FastifyInstance) {
   const userService = new UserService();
 
   fastify.get(

@@ -8,7 +8,7 @@ interface ProductParams {
   id: string;
 }
 
-export async function productRoutes(fastify: FastifyInstance) {
+export async function productAdminRoutes(fastify: FastifyInstance) {
   const productService = new ProductService();
 
   fastify.get(
