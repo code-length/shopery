@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@shopery/ui-shared": ["libs/ui/ui-shared/src/index.ts"],
-      "@shopery/ui-shared/styles": ["libs/ui/ui-shared/src/styles/index.scss"],
+      "@shopery/ui-shared/styles": ["libs/ui/ui-shared/src/styles"]
     }
   },
   "exclude": ["node_modules", "tmp"]

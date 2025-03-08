@@ -22,22 +22,7 @@ export default defineConfig({
   plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md']), svgr()],
   resolve: {
     alias: {
-      '@styles': path.resolve(
-        __dirname,
-        '../../libs/ui/ui-shared/src/styles/index.scss'
-      ),
       '@assets': path.resolve(__dirname, './src/assets/'),
-      '@styles-variables': path.resolve(
-        __dirname,
-        '../../libs/ui/ui-shared/src/styles/variables.scss'
-      ),
-    },
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@styles-variables";`,
-      },
     },
   },
   build: {

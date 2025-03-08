@@ -10,11 +10,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: $white;
-  font-size: $font-size-md;
-  font-weight: $weight-500;
+  color: var(--white);
+  font-size: var(--font-size-md);
+  font-weight: var(--weight-500);
   &:hover {
-    background-color: $gray-800;
+    background-color: var(--gray-800);
   }
   &:active {
     text-decoration: none;
@@ -22,12 +22,12 @@
 }
 
 .sectionName {
-  color: $white;
+  color: var(--white);
   padding: 5px 20px;
 }
 
 .active {
-  border-left: 5px $green-gray-600 solid;
+  border-left: 5px var(--green-gray-600) solid;
   background: rgb(150, 178, 151);
   background: linear-gradient(
     90deg,
