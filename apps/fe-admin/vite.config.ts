@@ -12,7 +12,7 @@ export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/fe-admin',
   server: {
-    port: process.env.FE_ADMIN_PORT,
+    port: Number(process.env.FE_ADMIN_PORT),
     host: 'localhost',
   },
   preview: {
@@ -23,6 +23,16 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, './src/assets/'),
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use '${path.resolve(
+          __dirname,
+          '../../libs/ui/ui-shared/src/styles/variables.scss'
+        )}' as v;`,
+      },
     },
   },
   build: {
