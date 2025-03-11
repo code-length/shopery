@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { idParamSchema } from '../../../shared/validations';
 import { OrderCreateDTO, OrderUpdateDTO } from '../dto';
 import { OrderService } from '../services';
-import { orderSchema } from '../validations';
+import { orderSchema } from '../validation';
 
 interface OrderParams {
   id: string;
