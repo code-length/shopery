@@ -2,7 +2,7 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 import { idParamSchema } from '../../../shared/validations';
 import { OrderCreateDTO, OrderUpdateDTO } from '../dto';
 import { OrderService } from '../services';
-import { orderSchema } from '../validation';
+import { OrderSchema } from '../validation';
 
 interface OrderParams {
   id: string;
@@ -18,7 +18,7 @@ export async function orderAdminRoutes(fastify: FastifyInstance) {
         response: {
           200: {
             type: 'array',
-            items: orderSchema,
+            items: OrderSchema,
           },
         },
       },
@@ -35,7 +35,7 @@ export async function orderAdminRoutes(fastify: FastifyInstance) {
       schema: {
         params: idParamSchema,
         response: {
-          200: orderSchema,
+          200: OrderSchema,
         },
       },
     },
@@ -52,7 +52,7 @@ export async function orderAdminRoutes(fastify: FastifyInstance) {
     '/orders',
     {
       schema: {
-        body: orderSchema,
+        body: OrderSchema,
         response: {
           201: {
             type: 'object',
@@ -80,7 +80,7 @@ export async function orderAdminRoutes(fastify: FastifyInstance) {
       schema: {
         params: idParamSchema,
         body: {
-          ...orderSchema,
+          ...OrderSchema,
           required: [],
         },
         response: {
