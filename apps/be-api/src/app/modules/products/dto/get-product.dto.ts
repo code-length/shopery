@@ -5,7 +5,6 @@ export class GetProductDTO {
   description: string;
   categoriesId: number;
   rating: number;
-  popularTag: string[];
   quantityInStock: number;
   brand: string;
   img: string;

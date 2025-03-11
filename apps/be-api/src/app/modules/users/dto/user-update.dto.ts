@@ -1,3 +1,3 @@
-import { UserCreateDTO } from './uset-create.dto';
+import { UserCreateDTO } from './user-create.dto';
 
 export type UserUpdateDTO = Partial<UserCreateDTO>;

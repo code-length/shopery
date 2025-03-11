@@ -1,4 +1,4 @@
-import { Role } from './uset-create.dto';
+import { Role } from './user-create.dto';
 
 export class GetUserDTO {
   id: string;
