@@ -1,62 +1,60 @@
-:root {
-  /* Colors */
-  --primary: #00b207;
-  --secondary: #84d187;
-  --tertiary: #2c742f;
-  --warning: #ff8a00;
-  --danger: #ea4b48;
-  --white: #ffffff;
+// Map CSS variables to Sass variables for backward compatibility
+$primary: var(--primary);
+$secondary: var(--secondary);
+$tertiary: var(--tertiary);
+$warning: var(--warning);
+$danger: var(--danger);
+$white: var(--white);
 
-  /* Gray Scale */
-  --gray-900: #1a1a1a;
-  --gray-800: #333333;
-  --gray-700: #4d4d4d;
-  --gray-600: #666666;
-  --gray-500: #828282;
-  --gray-400: #999999;
-  --gray-300: #b3b3b3;
-  --gray-200: #cccccc;
-  --gray-150: #e5e5e5;
-  --gray-100: #f2f2f2;
+// Gray Scale
+$gray-900: var(--gray-900);
+$gray-800: var(--gray-800);
+$gray-700: var(--gray-700);
+$gray-600: var(--gray-600);
+$gray-500: var(--gray-500);
+$gray-400: var(--gray-400);
+$gray-300: var(--gray-300);
+$gray-200: var(--gray-200);
+$gray-150: var(--gray-150);
+$gray-100: var(--gray-100);
 
-  /* Green Gray Scale */
-  --green-gray-900: #002603;
-  --green-gray-800: #173b1a;
-  --green-gray-700: #2b572e;
-  --green-gray-600: #406b42;
-  --green-gray-500: #618062;
-  --green-gray-400: #7a997c;
-  --green-gray-300: #96b297;
-  --green-gray-200: #b4ccb4;
-  --green-gray-150: #dae5da;
-  --green-gray-100: #edf2ee;
+// Green Gray Scale
+$green-gray-900: var(--green-gray-900);
+$green-gray-800: var(--green-gray-800);
+$green-gray-700: var(--green-gray-700);
+$green-gray-600: var(--green-gray-600);
+$green-gray-500: var(--green-gray-500);
+$green-gray-400: var(--green-gray-400);
+$green-gray-300: var(--green-gray-300);
+$green-gray-200: var(--green-gray-200);
+$green-gray-150: var(--green-gray-150);
+$green-gray-100: var(--green-gray-100);
 
-  /* Headings */
-  --heading-1: 72px;
-  --heading-2: 56px;
-  --heading-3: 48px;
-  --heading-4: 40px;
-  --heading-5: 36px;
-  --heading-6: 32px;
+// Headings
+$heading-1: var(--heading-1);
+$heading-2: var(--heading-2);
+$heading-3: var(--heading-3);
+$heading-4: var(--heading-4);
+$heading-5: var(--heading-5);
+$heading-6: var(--heading-6);
 
-  /* Body Font Sizes */
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
-  --font-size-xxl: 24px;
+// Body Font Sizes
+$font-size-xs: var(--font-size-xs);
+$font-size-sm: var(--font-size-sm);
+$font-size-md: var(--font-size-md);
+$font-size-lg: var(--font-size-lg);
+$font-size-xl: var(--font-size-xl);
+$font-size-xxl: var(--font-size-xxl);
 
-  /* Font Weights */
-  --weight-300: 300;
-  --weight-400: 400;
-  --weight-500: 500;
-  --weight-600: 600;
-  --weight-700: 700;
+// Font Weights
+$weight-300: var(--weight-300);
+$weight-400: var(--weight-400);
+$weight-500: var(--weight-500);
+$weight-600: var(--weight-600);
+$weight-700: var(--weight-700);
 
-  /* Border Radius */
-  --border-radius-button: 43px;
-  --border-radius-button-rounded: 50%;
-  --border-radius-card-primary: 6px;
-  --border-radius-card-secondary: 8px;
-}
+// Border Radius
+$border-radius-button: var(--border-radius-button);
+$border-radius-button-rounded: var(--border-radius-button-rounded);
+$border-radius-card-primary: var(--border-radius-card-primary);
+$border-radius-card-secondary: var(--border-radius-card-secondary);

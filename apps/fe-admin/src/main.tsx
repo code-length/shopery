@@ -1,5 +1,5 @@
 import '@fontsource/poppins';
-import '@shopery/ui-shared/styles/index.scss';
+import '@styles/css-variables.scss';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';

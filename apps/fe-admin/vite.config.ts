@@ -23,15 +23,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, './src/assets/'),
+      '@styles': path.resolve(__dirname, '../../libs/ui/ui-shared/src/styles'),
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use '${path.resolve(
-          __dirname,
-          '../../libs/ui/ui-shared/src/styles/variables.scss'
-        )}' as v;`,
+        additionalData: (source: string, id: string) => {
+          // Skip global imports for reset.scss and css-variables.scss
+          if (id.endsWith('reset.scss') || id.endsWith('css-variables.scss')) {
+            return source;
+          }
+          return `@use "@styles/variables" as *; ${source}`;
+        },
       },
     },
   },
