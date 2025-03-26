@@ -1,2 +1,3 @@
+export * from './AddToCartBtn/AddToCartBtn';
 export * from './Button/Button';
-export * from './Close/Close'
+export * from './Close/CloseBtn';

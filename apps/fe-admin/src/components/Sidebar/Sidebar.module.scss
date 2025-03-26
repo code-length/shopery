@@ -1,0 +1,29 @@
+.sidebar {
+  background-color: $gray-900;
+  min-height: 100vh;
+  height: 100%;
+  min-width: 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: $font-size-xxl;
+  color: $white;
+  font-weight: $weight-600;
+  padding: 20px;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.icon {
+  filter: brightness(0) invert(1);
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+}

@@ -2,7 +2,7 @@
 
 import styles from './page.module.scss';
 
-import { Button } from '@shopery/ui-shared';
+import { AddToCartBtn, Button, Close } from '@shopery/ui-shared';
 
 export default function Index() {
   /*
@@ -27,6 +27,8 @@ export default function Index() {
           >
             Test
           </Button>
+          <Close />
+          <AddToCartBtn />
           <div id='hero' className='rounded'>
             <div className='text-container'>
               <h2>

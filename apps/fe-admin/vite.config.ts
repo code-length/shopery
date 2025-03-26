@@ -1,15 +1,21 @@
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import react from '@vitejs/plugin-react';
+import dotenv from 'dotenv';
 import path from 'path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
+<<<<<<< HEAD
+=======
+
+dotenv.config();
+>>>>>>> 3724e112cb747823932a276e1dcd4f27e75d371e
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/fe-admin',
   server: {
-    port: 4200,
+    port: process.env.FE_ADMIN_PORT,
     host: 'localhost',
   },
   preview: {
@@ -20,6 +26,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@styles': path.resolve(__dirname, '../../libs/styles'),
+      '@assets': path.resolve(__dirname, './src/assets/'),
     },
   },
   css: {
