@@ -1,6 +1,5 @@
 import '@fontsource/poppins';
-import '@styles/base.scss';
-import '@styles/css-variables.scss';
+import '@styles/index.scss';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
