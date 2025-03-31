@@ -1,12 +1,11 @@
-import React from 'react';
-import styles from './Sidebar.module.scss';
-import { Link, User } from '../../types';
 import DashboardIcon from '@assets/icons/dashboard.svg?react';
-import ProductIcon from '@assets/icons/product.svg?react';
 import OrderIcon from '@assets/icons/order.svg?react';
+import ProductIcon from '@assets/icons/product.svg?react';
 import UserIcon from '@assets/icons/user.svg?react';
+import { Link, User } from '../../types';
 import Navigation from '../Navigation/Navigation';
 import UserComponent from '../User/User';
+import styles from './Sidebar.module.scss';
 
 const Sidebar = () => {
   const SIDEBAR_LINKS: Link[] = [

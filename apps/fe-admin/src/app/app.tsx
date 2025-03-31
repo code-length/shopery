@@ -1,5 +1,5 @@
-import PageLayout from '../layouts/PageLayout';
-import Sidebar from '../components/Sidebar';
+import { Sidebar } from '../components';
+import { PageLayout } from '../layouts';
 import styles from './app.module.scss';
 
 const App = () => {
@@ -9,7 +9,6 @@ const App = () => {
       <PageLayout />
     </div>
   );
-};
 };
 
 export default App;

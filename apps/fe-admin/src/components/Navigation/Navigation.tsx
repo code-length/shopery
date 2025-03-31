@@ -1,8 +1,8 @@
-import React from 'react';
 import clsx from 'clsx';
-import styles from './Navigation.module.scss';
-import { useLocation, NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { Link } from '../../types';
+import styles from './Navigation.module.scss';
 
 interface NavigationProps {
   links: Link[];
@@ -10,7 +10,6 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ links }) => {
   const location = useLocation();
-
   const isActive = (path: string) => location.pathname === path;
 
   return (

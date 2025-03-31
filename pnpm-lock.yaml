@@ -17,6 +17,9 @@ importers:
       '@fastify/sensible':
         specifier: ~6.0.2
         version: 6.0.3
+      '@fontsource/poppins':
+        specifier: ^5.2.5
+        version: 5.2.5
       ajv:
         specifier: ^8.17.1
         version: 8.17.1
@@ -1364,6 +1367,9 @@ packages:
 
   '@fastify/sensible@6.0.3':
     resolution: {integrity: sha512-Iyn8698hp/e5+v8SNBBruTa7UfrMEP52R16dc9jMpqSyEcPsvWFQo+R6WwHCUnJiLIsuci2ZoEZ7ilrSSCPIVg==}
+
+  '@fontsource/poppins@5.2.5':
+    resolution: {integrity: sha512-1S3k45pZOz2jqGPPqKw0in3uxFwnB+d5jSU8Tp9YwH/dIJptE3jdkQbYN0QD861GtuOpn6QhPW/yKt1w7hVRBQ==, tarball: https://registry.npmjs.org/@fontsource/poppins/-/poppins-5.2.5.tgz}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -9412,6 +9418,8 @@ snapshots:
       http-errors: 2.0.0
       type-is: 1.6.18
       vary: 1.1.2
+
+  '@fontsource/poppins@5.2.5': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
