@@ -1,6 +1,7 @@
 import './global.css';
 
 import '@styles/index.scss';
+import '@fontsource/poppins';
 
 export const metadata = {
   title: 'Welcome to fe-web',
