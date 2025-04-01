@@ -1,0 +1,30 @@
+.midle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .icons {
+    display: flex;
+    align-items: center;
+
+    .divider {
+      height: 100%;
+      border-left: 1px solid $gray-200;
+      margin: 0 16px;
+    }
+
+    .info {
+      padding-left: 20px;
+      p {
+        font-size: 11px;
+        color: $gray-700;
+      }
+
+      span {
+        font-size: $font-size-sm;
+        color: $gray-900;
+        font-weight: $weight-500;
+      }
+    }
+  }
+}
