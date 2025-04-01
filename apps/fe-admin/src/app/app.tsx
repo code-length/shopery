@@ -4,7 +4,7 @@ import styles from './app.module.scss';
 
 const App = () => {
   return (
-    <div className={styles.app}>
+    <div className={styles.Parent}>
       <Sidebar />
       <PageLayout />
     </div>

@@ -1,7 +1,5 @@
 'use client';
 
-import { Button } from '@shopery/ui-shared';
-
 export default function Index() {
   /*
    * Replace the elements below with your own.
@@ -18,13 +16,6 @@ export default function Index() {
               Welcome fe-web 👋
             </h1>
           </div>
-          <Button
-            onClick={() => console.log('test')}
-            variant='fill'
-            size='medium'
-          >
-            Test
-          </Button>
           <div id='hero' className='rounded'>
             <div className='text-container'>
               <h2>
