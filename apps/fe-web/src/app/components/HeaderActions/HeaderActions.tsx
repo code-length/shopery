@@ -7,18 +7,18 @@ import Search from '../Search/Search';
 import Bag from '../../assets/images/Bag.svg';
 import Heart from '../../assets/images/Heart.svg';
 
-import styles from './Midle.module.scss';
+import styles from './HeaderActions.module.scss';
 
-export default function Midle() {
+export default function HeaderActions() {
   return (
-    <div className={styles.midle}>
+    <div className={styles.infoOption}>
       <Image src={Logo} alt='Ecobazar' />
       <Search />
       <div className={styles.icons}>
         <Image src={Heart} alt='Heart' />
         <span className={styles.divider}>&nbsp;</span>
         <Space size='small'>
-          <Badge count={4} showZero className={styles.customBadge}>
+          <Badge count={4} showZero>
             <Avatar shape='square' size='large' src={Bag.src} />
           </Badge>
         </Space>

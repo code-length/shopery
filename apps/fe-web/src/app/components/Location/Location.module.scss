@@ -2,9 +2,10 @@
   display: flex;
   align-items: center;
   padding: 13px 0;
-  .text {
-    padding-left: 8px;
-    color: $gray-600;
-    font-size: $font-size-xs;
-  }
+}
+
+.text {
+  padding-left: 8px;
+  color: $gray-600;
+  font-size: $font-size-xs;
 }

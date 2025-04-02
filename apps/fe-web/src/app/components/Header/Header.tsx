@@ -1,18 +1,18 @@
 import CallNow from '../CallNow/CallNow';
-import Midle from '../Midle/Midle';
+import HeaderActions from '../HeaderActions/HeaderActions';
 import NavLinks from '../NavLinks/NavLinks';
-import SmallOne from '../SmallOne/SmallOne';
+import Details from '../Details/Details';
 
 import styles from './Header.module.scss';
 
 export default function Header() {
   return (
     <div>
-      <div className={styles.smallOne}>
-        <SmallOne />
+      <div className={styles.details}>
+        <Details />
       </div>
-      <div className={styles.midle}>
-        <Midle />
+      <div className={styles.infoOption}>
+        <HeaderActions />
       </div>
       <div className={styles.wrapper}>
         <nav className={styles.nav}>
