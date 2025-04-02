@@ -1,5 +1,5 @@
-import { PageLayout } from '../layouts';
 import { Sidebar } from '../components';
+import { PageLayout } from '../layouts';
 import styles from './app.module.scss';
 
 const App = () => {
