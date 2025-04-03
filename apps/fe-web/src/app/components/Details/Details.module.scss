@@ -1,0 +1,22 @@
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $gray-600;
+  font-size: $font-size-xs;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+}
+
+.divider {
+  padding: 0 20px;
+  color: $gray-200;
+}

@@ -1,0 +1,21 @@
+.details,
+.headerActions {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.headerActions {
+  padding: 24px 0;
+}
+
+.wrapper {
+  width: 100%;
+  background-color: $gray-800;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+}
