@@ -2,8 +2,10 @@ import Image from 'next/image';
 
 import { Avatar, Badge, Space } from 'antd';
 
-import Logo from '../../assets/images/Logo.svg';
+import Price from '../Price/Price';
 import Search from '../Search/Search';
+
+import Logo from '../../assets/images/Logo.svg';
 import Bag from '../../assets/images/Bag.svg';
 import Heart from '../../assets/images/Heart.svg';
 
@@ -24,7 +26,7 @@ export default function HeaderActions() {
         </Space>
         <div className={styles.info}>
           <p>Shopping cart:</p>
-          <span>$57.00</span>
+          <Price total={`$57.00`} />
         </div>
       </div>
     </div>
