@@ -8,11 +8,9 @@ const phoneDisplay = '(219) 555-0114';
 
 export default function CallNow() {
   return (
-    <div className={styles.callNow}>
+    <a className={styles.callNow} href={`tel:${phoneNumber}`}>
       <Image src={Phone} alt='phone' />
-      <a href={`tel:${phoneNumber}`} className={styles.phoneNumber}>
-        {phoneDisplay}
-      </a>
-    </div>
+      <span className={styles.phoneNumber}>{phoneDisplay}</span>
+    </a>
   );
 }

@@ -5,6 +5,19 @@
   padding-right: 32px;
 }
 
+.labelWithDropdown {
+  display: flex;
+  align-items: center;
+  img {
+    margin-left: 8px;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+}
+
 .active {
   color: $white;
 }

@@ -2,6 +2,7 @@ import CallNow from '../CallNow/CallNow';
 import HeaderActions from '../HeaderActions/HeaderActions';
 import NavLinks from '../NavLinks/NavLinks';
 import Details from '../Details/Details';
+import Divider from '../Divider/Divider';
 
 import styles from './Header.module.scss';
 
@@ -11,7 +12,8 @@ export default function Header() {
       <div className={styles.details}>
         <Details />
       </div>
-      <div className={styles.infoOption}>
+      <Divider />
+      <div className={styles.headerActions}>
         <HeaderActions />
       </div>
       <div className={styles.wrapper}>
