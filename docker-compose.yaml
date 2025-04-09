@@ -4,7 +4,7 @@ services:
     image: redis:7
     container_name: redis
     ports:
-      - "6379:6379"
+      - ${REDIS_PORT}:${REDIS_PORT}
     volumes:
       - redis_data:/data
 
@@ -12,7 +12,7 @@ services:
     image: mongo:7
     container_name: mongo
     ports:
-      - "27017:27017"
+      - ${BE_ADMIN_PORT}:${BE_ADMIN_PORT}
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
