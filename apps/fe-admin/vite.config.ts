@@ -12,7 +12,7 @@ export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/fe-admin',
   server: {
-    port: process.env.FE_ADMIN_PORT,
+    port: Number(process.env.FE_ADMIN_PORT),
     host: 'localhost',
   },
   preview: {

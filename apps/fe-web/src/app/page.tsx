@@ -1,7 +1,5 @@
 'use client';
 
-import styles from './page.module.scss';
-
 import { Button } from '@shopery/ui-shared';
 
 export default function Index() {
@@ -11,7 +9,7 @@ export default function Index() {
    * Note: The corresponding styles are in the ./index.scss file.
    */
   return (
-    <div className={styles.page}>
+    <div>
       <div className='wrapper'>
         <div className='container'>
           <div id='welcome'>
@@ -22,7 +20,7 @@ export default function Index() {
           </div>
           <Button
             onClick={() => console.log('test')}
-            variant='ghost'
+            variant='fill'
             size='medium'
           >
             Test
