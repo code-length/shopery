@@ -32,6 +32,36 @@ pnpm lint be-api
 
 ---
 
+# 🐳 Docker
+
+To run Redis and MongoDB using Docker, follow the steps below.
+
+## 🔧 Configuration
+
+- Make sure you have a .env file in the project root with the following variables:
+
+## ▶️ Start Services
+
+- Use the following command to spin up the containers:
+
+```sh
+docker-compose up -d
+```
+
+This will start:
+Redis (redis:7) — for caching and session management.
+MongoDB (mongo:7) — with default credentials root / example.
+
+## 🧹 Stop & Clean Up
+
+- To stop the services and remove volumes:
+
+```sh
+docker-compose down -v
+```
+
+---
+
 ## 🛠 Technologies
 
 ### Web (Frontend)
@@ -85,6 +115,7 @@ shopery/
 │
 ├── package.json
 ├── nx.json
+├── docker-compose.yaml
 └── README.md
 ```
 
