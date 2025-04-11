@@ -10,6 +10,7 @@
     border: 1px solid $gray-100;
     border-top-left-radius: $border-radius-card-primary;
     border-bottom-left-radius: $border-radius-card-primary;
+    outline: none;
   }
 }
 
@@ -39,5 +40,10 @@
   font-size: $font-size-sm;
   border-top-right-radius: $border-radius-card-primary;
   border-bottom-right-radius: $border-radius-card-primary;
+  font-weight: $weight-600;
   cursor: pointer;
+}
+
+.active {
+  background-color: $tertiary;
 }

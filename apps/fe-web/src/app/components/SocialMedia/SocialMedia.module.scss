@@ -1,0 +1,17 @@
+.socialIcons {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.activeIcon {
+  background-color: $primary;
+}

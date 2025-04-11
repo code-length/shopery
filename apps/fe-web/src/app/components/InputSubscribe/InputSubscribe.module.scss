@@ -1,0 +1,17 @@
+.inputField {
+  display: flex;
+
+  input {
+    position: relative;
+    margin-right: -80px;
+    width: 492px;
+    padding: 14px 24px;
+    border: 1px solid $gray-200;
+    border-radius: $border-radius-button;
+    outline: none;
+  }
+
+  .buttonInside {
+    z-index: 100;
+  }
+}

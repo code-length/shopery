@@ -1,0 +1,13 @@
+.subscribeWrapper {
+  width: 100%;
+  background-color: $gray-50;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}

@@ -1,0 +1,19 @@
+.cta {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+
+  p {
+    padding: 0 !important;
+    color: $white !important;
+    font-size: $font-size-sm;
+    font-weight: $weight-600;
+  }
+
+  span {
+    padding: 0 16px;
+    color: $white !important;
+    font-size: $font-size-sm;
+    font-weight: $weight-600;
+  }
+}

@@ -5,16 +5,16 @@ import { Avatar, Badge, Space } from 'antd';
 import Price from '../Price/Price';
 import Search from '../Search/Search';
 
-import Logo from '../../assets/images/Logo.svg';
 import Bag from '../../assets/images/Bag.svg';
 import Heart from '../../assets/images/Heart.svg';
 
 import styles from './HeaderActions.module.scss';
+import Logo from '../Logo/Logo';
 
 export default function HeaderActions() {
   return (
     <div className={styles.infoOption}>
-      <Image src={Logo} alt='Ecobazar' />
+      <Logo />
       <Search />
       <div className={styles.icons}>
         <Image src={Heart} alt='Heart' />

@@ -1,0 +1,46 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  background-color: $primary;
+  padding: 16px 40px;
+  font-size: $font-size-md;
+  color: $white;
+  font-weight: $weight-600;
+  border-radius: $border-radius-button;
+  cursor: pointer;
+
+  &.small {
+    padding: 10px 24px;
+    font-size: $font-size-xs;
+  }
+
+  &.medium {
+    padding: 14px 32px;
+    font-size: $font-size-sm;
+  }
+
+  &.outline {
+    border: 2px solid $primary;
+    background-color: $white;
+    color: $primary;
+  }
+
+  &.activeOutline {
+    border: 2px solid $tertiary;
+    color: $tertiary;
+  }
+
+  &.active {
+    background-color: $tertiary;
+  }
+
+  &.ghost {
+    background: rgba(86, 172, 89, 0.1);
+    color: $primary;
+  }
+
+  &.activeGhost {
+    background: rgba(44, 116, 47, 0.2);
+    color: $tertiary;
+  }
+}
