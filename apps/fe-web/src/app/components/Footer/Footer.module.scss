@@ -1,0 +1,17 @@
+.wrapper {
+  width: 100%;
+  background-color: $gray-900;
+
+  main {
+    width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+.copy_payment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $gray-400;
+  padding: 24px 0;
+}

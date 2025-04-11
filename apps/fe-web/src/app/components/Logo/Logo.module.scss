@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  align-items: center;
+
+  h6 {
+    font-size: $heading-6;
+    padding-left: 8px;
+    margin: 0;
+  }
+
+  .headingWhite {
+    color: $white;
+  }
+}
