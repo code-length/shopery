@@ -1,10 +1,12 @@
 import React from 'react';
-import { Table } from '@shopery/ui-shared';
+import { Table, Sort } from '@shopery/ui-shared';
+import styles from './OrderPage.module.scss';
 
 const OrderPage = () => {
   return (
-    <section>
+    <section className={styles.orderPage}>
       <h1>Orders</h1>
+      <Sort />
       <Table
         admin={true}
         header={[

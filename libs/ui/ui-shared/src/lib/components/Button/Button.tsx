@@ -3,7 +3,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import styles from './Button.module.scss';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string;
+  children: string | React.ReactNode;
   variant?: 'fill' | 'border' | 'ghost';
   size?: 'small' | 'medium' | 'large';
 }

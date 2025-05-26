@@ -1,0 +1,31 @@
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .ant-select {
+    width: 100%;
+    max-width: 250px;
+
+    .ant-select-selector {
+      border-radius: $border-radius-button;
+      border: 1px solid $gray-300;
+      background-color: $white;
+      font-size: $font-size-sm;
+      color: $gray-800;
+      padding: 8px 12px;
+
+      &:hover {
+        border-color: $primary;
+      }
+    }
+
+    .ant-select-arrow {
+      color: $gray-600;
+    }
+
+    .ant-select-selection-item {
+      font-weight: $weight-500;
+    }
+  }
+}

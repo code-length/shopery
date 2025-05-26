@@ -2,6 +2,7 @@ import React from 'react';
 import { UserType, OrderType, ProductType } from '../../../types';
 import Button from '../Button/Button';
 import styles from './Table.module.scss';
+import { MdEdit, MdDelete } from 'react-icons/md';
 
 export type TableProps<T> = {
   admin: boolean;
@@ -39,7 +40,7 @@ export const Table = <T extends UserType | OrderType | ProductType>({
                       console.log('Edit');
                     }}
                   >
-                    Edit
+                    <MdEdit />
                   </Button>
                   <Button
                     variant='border'
@@ -47,7 +48,7 @@ export const Table = <T extends UserType | OrderType | ProductType>({
                       console.log('Delete');
                     }}
                   >
-                    Delete
+                    <MdDelete />
                   </Button>
                 </div>
               </td>
