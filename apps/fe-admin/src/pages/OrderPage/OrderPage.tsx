@@ -1,14 +1,24 @@
 import React from 'react';
-import { Table, Sort } from '@shopery/ui-shared';
+import { Table, CustomSelect, CustomInput } from '@shopery/ui-shared';
 import styles from './OrderPage.module.scss';
 
 const OrderPage = () => {
   return (
     <section className={styles.orderPage}>
       <h1>Orders</h1>
-      <Sort />
+      <CustomInput placeholder='Search...' />
+      <CustomSelect
+        prefix='Filter by status:'
+        options={[
+          { value: 'all', label: 'All' },
+          { value: 'pending', label: 'Pending' },
+          { value: 'shipped', label: 'Shipped' },
+          { value: 'delivered', label: 'Delivered' },
+        ]}
+        onChange={() => console.log('Filter changed')}
+      />
       <Table
-        admin={true}
+        actions={true}
         header={[
           'Order ID',
           'User',

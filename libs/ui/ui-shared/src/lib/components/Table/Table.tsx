@@ -5,13 +5,13 @@ import styles from './Table.module.scss';
 import { MdEdit, MdDelete } from 'react-icons/md';
 
 export type TableProps<T> = {
-  admin: boolean;
+  actions: boolean;
   header: string[];
   content: T[];
 };
 
 export const Table = <T extends UserType | OrderType | ProductType>({
-  admin,
+  actions,
   header,
   content,
 }: TableProps<T>) => {
@@ -22,7 +22,7 @@ export const Table = <T extends UserType | OrderType | ProductType>({
           {header.map((item, index) => (
             <th key={index}>{item}</th>
           ))}
-          {admin && <th>Actions</th>}
+          {actions && <th>Actions</th>}
         </tr>
       </thead>
       <tbody>
@@ -31,7 +31,7 @@ export const Table = <T extends UserType | OrderType | ProductType>({
             {Object.values(item).map((value, idx) => (
               <td key={idx}>{value.toString()}</td>
             ))}
-            {admin && (
+            {actions && (
               <td colSpan={header.length + 1}>
                 <div className={styles.actions}>
                   <Button
