@@ -1,12 +1,39 @@
-import React from 'react';
 import { Table, CustomSelect, CustomInput } from '@shopery/ui-shared';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
 
+const orderSchema = yup
+  .object({
+    search: yup.string().optional(),
+  })
+  .required();
+
 const OrderPage = () => {
+  const { control, handleSubmit } = useForm({
+    resolver: yupResolver(orderSchema),
+    defaultValues: {
+      search: '',
+    },
+  });
   return (
     <section className={styles.orderPage}>
       <h1>Orders</h1>
-      <CustomInput placeholder='Search...' />
+      <form onSubmit={handleSubmit((data) => console.log('Form data:', data))}>
+        <Controller
+          name='search'
+          control={control}
+          render={({ field, fieldState }) => (
+            <CustomInput
+              placeholder='Search...'
+              {...field}
+              hasError={!!fieldState.error}
+              error={fieldState.error?.message}
+            />
+          )}
+        />
+      </form>
       <CustomSelect
         prefix='Filter by status:'
         options={[
