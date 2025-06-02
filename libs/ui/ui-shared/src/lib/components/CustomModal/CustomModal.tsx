@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import { Modal } from 'antd';
-import { Button } from '../Button/Button';
 
 type CustomModalProps = {
   children: React.ReactNode;

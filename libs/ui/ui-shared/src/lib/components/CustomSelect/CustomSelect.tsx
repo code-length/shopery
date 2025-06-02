@@ -12,16 +12,11 @@ export const CustomSelect = ({
   onChange,
   options,
 }: CustomSelectProps) => {
-  const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
-  };
-
   return (
     <Select
       defaultValue={options ? options[0].value : 'Featured'}
-      onChange={onChange || handleChange}
+      onChange={onChange}
       prefix={prefix}
-      style={{ width: '30%' }}
       options={options}
     />
   );

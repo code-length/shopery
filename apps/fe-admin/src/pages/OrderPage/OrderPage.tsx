@@ -3,7 +3,7 @@ import {
   CustomTable,
   CustomSelect,
   CustomInput,
-  Button,
+  CustomButton,
   CustomModal,
 } from '@shopery/ui-shared';
 import { useForm, Controller } from 'react-hook-form';
@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
 import { MdDelete, MdEdit, MdAdd } from 'react-icons/md';
+import { useDebounce } from '../../hooks/useDebounce'; // шляхи підкоригуйте під себе
 
 const orderSchema = yup
   .object({
@@ -32,13 +33,13 @@ const columns = [
     title: 'Actions',
     key: 'actions',
     render: () => (
-      <span>
-        <Button>
+      <span className={styles.ActionButtons}>
+        <CustomButton>
           <MdDelete />
-        </Button>
-        <Button style={{ marginLeft: 8 }}>
+        </CustomButton>
+        <CustomButton>
           <MdEdit />
-        </Button>
+        </CustomButton>
       </span>
     ),
   },
@@ -80,16 +81,32 @@ const OrderPage = () => {
   const handleClick = () => {
     setOpenModal((prev) => !prev);
   };
-  const { control, handleSubmit } = useForm({
+  const { control, watch } = useForm({
     resolver: yupResolver(orderSchema),
     defaultValues: {
       search: '',
     },
   });
+
+  const searchValue = watch('search');
+  const debouncedSearch = useDebounce(searchValue, 400);
+
+  const filteredData = dataSource.filter((item) => {
+    if (!debouncedSearch) return true;
+    const searchStr = debouncedSearch.toLowerCase();
+    return (
+      String(item.id).includes(searchStr) ||
+      String(item.userId).includes(searchStr) ||
+      String(item.totalNumberOfProducts).includes(searchStr) ||
+      String(item.totalPrice).includes(searchStr) ||
+      String(item.status).toLowerCase().includes(searchStr)
+    );
+  });
+
   return (
     <section className={styles.orderPage}>
       <h1>Orders</h1>
-      <form onSubmit={handleSubmit((data) => console.log('Form data:', data))}>
+      <form>
         <Controller
           name='search'
           control={control}
@@ -113,10 +130,10 @@ const OrderPage = () => {
         ]}
         onChange={() => console.log('Filter changed')}
       />
-      <CustomTable columns={columns} dataSource={dataSource} />
-      <Button onClick={handleClick}>
+      <CustomTable columns={columns} dataSource={filteredData} />
+      <CustomButton onClick={handleClick}>
         <MdAdd />
-      </Button>
+      </CustomButton>
       <CustomModal
         open={openModal}
         title='Add new order'
