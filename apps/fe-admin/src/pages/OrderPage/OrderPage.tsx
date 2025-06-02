@@ -1,8 +1,14 @@
-import { CustomTable, CustomSelect, CustomInput } from '@shopery/ui-shared';
+import {
+  CustomTable,
+  CustomSelect,
+  CustomInput,
+  Button,
+} from '@shopery/ui-shared';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
+import { MdDelete, MdEdit } from 'react-icons/md';
 
 const orderSchema = yup
   .object({
@@ -20,6 +26,20 @@ const columns = [
   },
   { title: 'Total Price', dataIndex: 'totalPrice', key: 'totalPrice' },
   { title: 'Status', dataIndex: 'status', key: 'status' },
+  {
+    title: 'Actions',
+    key: 'actions',
+    render: () => (
+      <span>
+        <Button>
+          <MdDelete />
+        </Button>
+        <Button style={{ marginLeft: 8 }}>
+          <MdEdit />
+        </Button>
+      </span>
+    ),
+  },
 ];
 
 const dataSource = [
