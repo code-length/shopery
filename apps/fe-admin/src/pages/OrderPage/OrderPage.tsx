@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import {
   CustomTable,
   CustomSelect,
   CustomInput,
   Button,
+  CustomModal,
 } from '@shopery/ui-shared';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
-import { MdDelete, MdEdit } from 'react-icons/md';
+import { MdDelete, MdEdit, MdAdd } from 'react-icons/md';
 
 const orderSchema = yup
   .object({
@@ -74,6 +76,10 @@ const dataSource = [
 ];
 
 const OrderPage = () => {
+  const [openModal, setOpenModal] = useState(false);
+  const handleClick = () => {
+    setOpenModal((prev) => !prev);
+  };
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(orderSchema),
     defaultValues: {
@@ -108,6 +114,17 @@ const OrderPage = () => {
         onChange={() => console.log('Filter changed')}
       />
       <CustomTable columns={columns} dataSource={dataSource} />
+      <Button onClick={handleClick}>
+        <MdAdd />
+      </Button>
+      <CustomModal
+        open={openModal}
+        title='Add new order'
+        onCancel={handleClick}
+      >
+        <h2>Add new order</h2>
+        <p>Here you can view and edit order details.</p>
+      </CustomModal>
     </section>
   );
 };
