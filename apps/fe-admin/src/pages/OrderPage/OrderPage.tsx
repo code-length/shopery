@@ -11,7 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
 import { MdDelete, MdEdit, MdAdd } from 'react-icons/md';
-import { useDebounce } from '../../hooks/useDebounce'; // шляхи підкоригуйте під себе
+import { useDebounce } from '../../hooks/useDebounce';
 
 const orderSchema = yup
   .object({
