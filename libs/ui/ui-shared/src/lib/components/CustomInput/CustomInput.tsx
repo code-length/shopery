@@ -15,18 +15,14 @@ export const CustomInput = ({
   hasError,
 }: CustomInputProps) => {
   return (
-    <div>
-      <Input
-        placeholder={placeholder}
-        size='large'
-        onChange={onChange}
-        allowClear
-        status={hasError ? 'error' : undefined}
-      />
-      {hasError && error && (
-        <div style={{ color: 'red', marginTop: 4, fontSize: 12 }}>{error}</div>
-      )}
-    </div>
+    <Input
+      {...props}
+      placeholder={placeholder}
+      size='large'
+      onChange={onChange}
+      allowClear
+      status={hasError ? 'error' : undefined}
+    />
   );
 };
 

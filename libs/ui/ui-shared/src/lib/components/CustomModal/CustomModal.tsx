@@ -6,6 +6,7 @@ type CustomModalProps = {
   open?: boolean;
   onOk?: () => void;
   onCancel?: () => void;
+  props: React.ComponentProps<typeof Modal>;
 };
 
 export const CustomModal = ({
@@ -14,9 +15,11 @@ export const CustomModal = ({
   open,
   onOk,
   onCancel,
+  ...props
 }: CustomModalProps) => {
   return (
     <Modal
+      {...props}
       title={title}
       closable={{ 'aria-label': 'Custom Close Button' }}
       open={open}

@@ -6,12 +6,13 @@ import {
   CustomButton,
   CustomModal,
 } from '@shopery/ui-shared';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, useWatch } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
-import { MdDelete, MdEdit, MdAdd } from 'react-icons/md';
-import { useDebounce } from '../../hooks/useDebounce';
+import { MdAdd } from 'react-icons/md';
+import ActionButtons from '../../components/ActionButtons/ActionButtons';
+import { useDeferredValue } from '../../hooks/useDeferredValue';
 
 const orderSchema = yup
   .object({
@@ -32,16 +33,7 @@ const columns = [
   {
     title: 'Actions',
     key: 'actions',
-    render: () => (
-      <span className={styles.ActionButtons}>
-        <CustomButton>
-          <MdDelete />
-        </CustomButton>
-        <CustomButton>
-          <MdEdit />
-        </CustomButton>
-      </span>
-    ),
+    render: () => <ActionButtons />,
   },
 ];
 
@@ -78,18 +70,15 @@ const dataSource = [
 
 const OrderPage = () => {
   const [openModal, setOpenModal] = useState(false);
-  const handleClick = () => {
-    setOpenModal((prev) => !prev);
-  };
-  const { control, watch } = useForm({
+  const { control } = useForm({
     resolver: yupResolver(orderSchema),
     defaultValues: {
       search: '',
     },
   });
 
-  const searchValue = watch('search');
-  const debouncedSearch = useDebounce(searchValue, 400);
+  const searchValue = useWatch({ control, name: 'search' });
+  const debouncedSearch = useDeferredValue(searchValue?.trim() ?? '', 400);
 
   const filteredData = dataSource.filter((item) => {
     if (!debouncedSearch) return true;
@@ -103,6 +92,9 @@ const OrderPage = () => {
     );
   });
 
+  const handleClick = () => {
+    setOpenModal((prev) => !prev);
+  };
   return (
     <section className={styles.orderPage}>
       <h1>Orders</h1>
