@@ -33,7 +33,12 @@ const columns = [
   {
     title: 'Actions',
     key: 'actions',
-    render: () => <ActionButtons />,
+    render: (record) => (
+      <ActionButtons
+        onClickDelete={() => console.log('Delete order', record.id)}
+        onClickEdit={() => console.log('Edit order', record.id)}
+      />
+    ),
   },
 ];
 
@@ -95,6 +100,7 @@ const OrderPage = () => {
   const handleClick = () => {
     setOpenModal((prev) => !prev);
   };
+
   return (
     <section className={styles.orderPage}>
       <h1>Orders</h1>

@@ -6,7 +6,6 @@ type CustomModalProps = {
   open?: boolean;
   onOk?: () => void;
   onCancel?: () => void;
-  props: React.ComponentProps<typeof Modal>;
 };
 
 export const CustomModal = ({

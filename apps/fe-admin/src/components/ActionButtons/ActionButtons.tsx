@@ -2,14 +2,20 @@ import React from 'react';
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { CustomButton } from '@shopery/ui-shared';
 import styles from './ActionButtons.module.scss';
+import { on } from 'events';
 
-const ActionButtons = () => {
+type ActionButtonsProps = {
+  onClickDelete?: () => void;
+  onClickEdit?: () => void;
+};
+
+const ActionButtons = ({ onClickDelete, onClickEdit }: ActionButtonsProps) => {
   return (
     <span className={styles.ActionButtons}>
-      <CustomButton>
+      <CustomButton onClick={onClickDelete}>
         <MdDelete />
       </CustomButton>
-      <CustomButton>
+      <CustomButton onClick={onClickEdit}>
         <MdEdit />
       </CustomButton>
     </span>

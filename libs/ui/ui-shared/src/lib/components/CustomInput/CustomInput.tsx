@@ -13,6 +13,7 @@ export const CustomInput = ({
   onChange,
   error,
   hasError,
+  ...props
 }: CustomInputProps) => {
   return (
     <Input
