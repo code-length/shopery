@@ -5,18 +5,18 @@ import styles from './ActionButtons.module.scss';
 import { on } from 'events';
 
 type ActionButtonsProps = {
-  onClickDelete?: () => void;
-  onClickEdit?: () => void;
+  onEdit?: () => void;
+  onDelete?: () => void;
 };
 
-const ActionButtons = ({ onClickDelete, onClickEdit }: ActionButtonsProps) => {
+const ActionButtons = ({ onEdit, onDelete }: ActionButtonsProps) => {
   return (
     <span className={styles.ActionButtons}>
-      <CustomButton onClick={onClickDelete}>
-        <MdDelete />
-      </CustomButton>
-      <CustomButton onClick={onClickEdit}>
+      <CustomButton onClick={onEdit}>
         <MdEdit />
+      </CustomButton>
+      <CustomButton onClick={onDelete}>
+        <MdDelete />
       </CustomButton>
     </span>
   );

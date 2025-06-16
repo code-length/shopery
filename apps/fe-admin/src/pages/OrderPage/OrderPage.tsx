@@ -13,34 +13,13 @@ import styles from './OrderPage.module.scss';
 import { MdAdd } from 'react-icons/md';
 import ActionButtons from '../../components/ActionButtons/ActionButtons';
 import { useDeferredValue } from '../../hooks/useDeferredValue';
+import Modal from '../../components/Modal/Modal';
 
 const orderSchema = yup
   .object({
     search: yup.string().optional(),
   })
   .required();
-
-const columns = [
-  { title: 'Order ID', dataIndex: 'id', key: 'id' },
-  { title: 'User', dataIndex: 'userId', key: 'userId' },
-  {
-    title: 'Total number of products',
-    dataIndex: 'totalNumberOfProducts',
-    key: 'totalNumberOfProducts',
-  },
-  { title: 'Total Price', dataIndex: 'totalPrice', key: 'totalPrice' },
-  { title: 'Status', dataIndex: 'status', key: 'status' },
-  {
-    title: 'Actions',
-    key: 'actions',
-    render: (record) => (
-      <ActionButtons
-        onClickDelete={() => console.log('Delete order', record.id)}
-        onClickEdit={() => console.log('Edit order', record.id)}
-      />
-    ),
-  },
-];
 
 const dataSource = [
   {
@@ -75,12 +54,35 @@ const dataSource = [
 
 const OrderPage = () => {
   const [openModal, setOpenModal] = useState(false);
+  const [modalType, setModalType] = useState('add');
   const { control } = useForm({
     resolver: yupResolver(orderSchema),
     defaultValues: {
       search: '',
     },
   });
+
+  const columns = [
+    { title: 'Order ID', dataIndex: 'id', key: 'id' },
+    { title: 'User', dataIndex: 'userId', key: 'userId' },
+    {
+      title: 'Total number of products',
+      dataIndex: 'totalNumberOfProducts',
+      key: 'totalNumberOfProducts',
+    },
+    { title: 'Total Price', dataIndex: 'totalPrice', key: 'totalPrice' },
+    { title: 'Status', dataIndex: 'status', key: 'status' },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (record) => (
+        <ActionButtons
+          onEdit={() => handleClick('edit')}
+          onDelete={() => handleClick('delete')}
+        />
+      ),
+    },
+  ];
 
   const searchValue = useWatch({ control, name: 'search' });
   const debouncedSearch = useDeferredValue(searchValue?.trim() ?? '', 400);
@@ -97,8 +99,9 @@ const OrderPage = () => {
     );
   });
 
-  const handleClick = () => {
+  const handleClick = (type) => {
     setOpenModal((prev) => !prev);
+    setModalType(type);
   };
 
   return (
@@ -129,17 +132,14 @@ const OrderPage = () => {
         onChange={() => console.log('Filter changed')}
       />
       <CustomTable columns={columns} dataSource={filteredData} />
-      <CustomButton onClick={handleClick}>
+      <CustomButton onClick={() => handleClick('add')}>
         <MdAdd />
       </CustomButton>
-      <CustomModal
-        open={openModal}
-        title='Add new order'
-        onCancel={handleClick}
-      >
-        <h2>Add new order</h2>
-        <p>Here you can view and edit order details.</p>
-      </CustomModal>
+      <Modal
+        isOpen={openModal}
+        modalType={modalType}
+        onClose={() => handleClick(null)}
+      />
     </section>
   );
 };
