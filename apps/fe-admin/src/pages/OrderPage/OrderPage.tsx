@@ -54,7 +54,7 @@ const dataSource = [
 
 const OrderPage = () => {
   const [openModal, setOpenModal] = useState(false);
-  const [modalType, setModalType] = useState('add');
+  const [modalType, setModalType] = useState<any>('add');
   const { control } = useForm({
     resolver: yupResolver(orderSchema),
     defaultValues: {
@@ -99,7 +99,7 @@ const OrderPage = () => {
     );
   });
 
-  const handleClick = (type) => {
+  const handleClick = (type: string) => {
     setOpenModal((prev) => !prev);
     setModalType(type);
   };
@@ -135,11 +135,7 @@ const OrderPage = () => {
       <CustomButton onClick={() => handleClick('add')}>
         <MdAdd />
       </CustomButton>
-      <Modal
-        isOpen={openModal}
-        modalType={modalType}
-        onClose={() => handleClick(null)}
-      />
+      <Modal isOpen={openModal} modalType={modalType} entity='order' />
     </section>
   );
 };

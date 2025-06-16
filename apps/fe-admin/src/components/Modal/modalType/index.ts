@@ -1,0 +1,9 @@
+export {default as addProduct} from './product/addProduct';
+export {default as editProduct} from './product/editProduct';
+export {default as deleteProduct} from './product/deleteProduct';
+export {default as addOrder} from './order/addOrder';
+export {default as editOrder} from './order/editOrder';
+export {default as deleteOrder} from './order/deleteOrder';
+export {default as addUser} from './user/addUser';
+export {default as editUser} from './user/editUser';
+export {default as deleteUser} from './user/deleteUser';
