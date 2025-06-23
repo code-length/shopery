@@ -8,23 +8,9 @@ type CustomModalProps = {
   onCancel?: () => void;
 };
 
-export const CustomModal = ({
-  children,
-  title,
-  open,
-  onOk,
-  onCancel,
-  ...props
-}: CustomModalProps) => {
+export const CustomModal = ({ children, ...props }: CustomModalProps) => {
   return (
-    <Modal
-      {...props}
-      title={title}
-      closable={{ 'aria-label': 'Custom Close Button' }}
-      open={open}
-      onOk={onOk}
-      onCancel={onCancel}
-    >
+    <Modal {...props} closable={true}>
       {children}
     </Modal>
   );

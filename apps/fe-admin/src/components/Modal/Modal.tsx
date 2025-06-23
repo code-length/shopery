@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  addOrder,
+  AddOrder,
   editOrder,
   deleteOrder,
   addProduct,
@@ -27,39 +27,6 @@ const Modal = ({
   onClose,
   onSave,
 }: ModalTypeProps) => {
-  let content;
-
-  switch (entity) {
-    case 'order':
-      if (modalType === 'add') {
-        content = addOrder();
-      } else if (modalType === 'edit') {
-        content = editOrder();
-      } else if (modalType === 'delete') {
-        content = deleteOrder();
-      }
-      break;
-    case 'product':
-      if (modalType === 'add') {
-        content = addProduct();
-      } else if (modalType === 'edit') {
-        content = editProduct();
-      } else if (modalType === 'delete') {
-        content = deleteProduct();
-      }
-      break;
-    case 'user':
-      if (modalType === 'add') {
-        content = addUser();
-      } else if (modalType === 'edit') {
-        content = editUser();
-      } else if (modalType === 'delete') {
-        content = deleteUser();
-      }
-      break;
-    default:
-      content = <div>Invalid entity or modal type</div>;
-  }
   return (
     <CustomModal
       open={isOpen}
@@ -67,7 +34,7 @@ const Modal = ({
       onCancel={onClose}
       title={modalType}
     >
-      {content}
+      Modal
     </CustomModal>
   );
 };

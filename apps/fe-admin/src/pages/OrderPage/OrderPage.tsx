@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useDeferredValue } from 'react';
 import {
   CustomTable,
   CustomSelect,
@@ -7,19 +7,10 @@ import {
   CustomModal,
 } from '@shopery/ui-shared';
 import { useForm, Controller, useWatch } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import styles from './OrderPage.module.scss';
 import { MdAdd } from 'react-icons/md';
 import ActionButtons from '../../components/ActionButtons/ActionButtons';
-import { useDeferredValue } from '../../hooks/useDeferredValue';
 import Modal from '../../components/Modal/Modal';
-
-const orderSchema = yup
-  .object({
-    search: yup.string().optional(),
-  })
-  .required();
 
 const dataSource = [
   {
@@ -53,10 +44,9 @@ const dataSource = [
 ];
 
 const OrderPage = () => {
-  const [openModal, setOpenModal] = useState(false);
-  const [modalType, setModalType] = useState<any>('add');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<string>('add');
   const { control } = useForm({
-    resolver: yupResolver(orderSchema),
     defaultValues: {
       search: '',
     },
@@ -100,7 +90,7 @@ const OrderPage = () => {
   });
 
   const handleClick = (type: string) => {
-    setOpenModal((prev) => !prev);
+    setIsModalOpen((prev) => !prev);
     setModalType(type);
   };
 
@@ -129,13 +119,12 @@ const OrderPage = () => {
           { value: 'shipped', label: 'Shipped' },
           { value: 'delivered', label: 'Delivered' },
         ]}
-        onChange={() => console.log('Filter changed')}
       />
       <CustomTable columns={columns} dataSource={filteredData} />
       <CustomButton onClick={() => handleClick('add')}>
         <MdAdd />
       </CustomButton>
-      <Modal isOpen={openModal} modalType={modalType} entity='order' />
+      <Modal isOpen={isModalOpen} modalType={modalType} entity='order' />
     </section>
   );
 };
