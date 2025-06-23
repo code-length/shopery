@@ -1,5 +1,5 @@
 import { ModalType } from "./modalType";
-import {AddUserModal, AddProductModal, EditUserModal, EditProductModal, DeleteModal} from "./modals";
+import { AddUserModal, AddProductModal, EditUserModal, EditProductModal, DeleteModal, EditOrderModal } from "./modals";
 
 export const modalsMap = {
         [ModalType.ADD_USER]: AddUserModal,
@@ -7,4 +7,5 @@ export const modalsMap = {
         [ModalType.EDIT_USER]: EditUserModal,
         [ModalType.EDIT_PRODUCT]: EditProductModal,
         [ModalType.DELETE]: DeleteModal,
+        [ModalType.EDIT_ORDER]: EditOrderModal,
 }

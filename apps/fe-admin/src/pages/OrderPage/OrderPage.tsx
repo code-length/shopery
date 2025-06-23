@@ -1,52 +1,18 @@
-import { useState, useDeferredValue } from 'react';
+import { useDeferredValue } from 'react';
 import {
   CustomTable,
   CustomSelect,
   CustomInput,
-  CustomButton,
   useModal,
   CustomModal,
 } from '@shopery/ui-shared';
 import { useForm, Controller, useWatch } from 'react-hook-form';
 import styles from './OrderPage.module.scss';
-import { MdAdd } from 'react-icons/md';
 import ActionButtons from '../../components/ActionButtons/ActionButtons';
-
-const dataSource = [
-  {
-    id: 1,
-    userId: 101,
-    totalNumberOfProducts: 2,
-    totalPrice: 50,
-    status: 'pending',
-  },
-  {
-    id: 2,
-    userId: 102,
-    totalNumberOfProducts: 3,
-    totalPrice: 75,
-    status: 'shipped',
-  },
-  {
-    id: 3,
-    userId: 103,
-    totalNumberOfProducts: 1,
-    totalPrice: 25,
-    status: 'delivered',
-  },
-  {
-    id: 4,
-    userId: 104,
-    totalNumberOfProducts: 5,
-    totalPrice: 100,
-    status: 'pending',
-  },
-];
+import { dataSource } from '../../data';
 
 const OrderPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState<string>('add');
-  const { openAddUserModal, openEditUserModal, openDeleteModal } = useModal();
+  const { openEditOrderModal, openDeleteModal } = useModal();
   const { control } = useForm({
     defaultValues: {
       search: '',
@@ -67,7 +33,10 @@ const OrderPage = () => {
       title: 'Actions',
       key: 'actions',
       render: (record) => (
-        <ActionButtons onEdit={() => {}} onDelete={() => {}} />
+        <ActionButtons
+          onEdit={() => openEditOrderModal({ orderId: record.id })}
+          onDelete={() => openDeleteModal({ orderId: record.id })}
+        />
       ),
     },
   ];
@@ -86,11 +55,6 @@ const OrderPage = () => {
       String(item.status).toLowerCase().includes(searchStr)
     );
   });
-
-  const handleClick = (type: string) => {
-    setIsModalOpen((prev) => !prev);
-    setModalType(type);
-  };
 
   return (
     <section className={styles.orderPage}>
@@ -119,9 +83,6 @@ const OrderPage = () => {
         ]}
       />
       <CustomTable columns={columns} dataSource={filteredData} />
-      <CustomButton onClick={() => openAddUserModal({ userId: null })}>
-        <MdAdd />
-      </CustomButton>
       <CustomModal />
     </section>
   );
