@@ -4,13 +4,13 @@ import {
   CustomSelect,
   CustomInput,
   CustomButton,
+  useModal,
   CustomModal,
 } from '@shopery/ui-shared';
 import { useForm, Controller, useWatch } from 'react-hook-form';
 import styles from './OrderPage.module.scss';
 import { MdAdd } from 'react-icons/md';
 import ActionButtons from '../../components/ActionButtons/ActionButtons';
-import Modal from '../../components/Modal/Modal';
 
 const dataSource = [
   {
@@ -46,6 +46,7 @@ const dataSource = [
 const OrderPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState<string>('add');
+  const { openAddUserModal, openEditUserModal, openDeleteModal } = useModal();
   const { control } = useForm({
     defaultValues: {
       search: '',
@@ -66,10 +67,7 @@ const OrderPage = () => {
       title: 'Actions',
       key: 'actions',
       render: (record) => (
-        <ActionButtons
-          onEdit={() => handleClick('edit')}
-          onDelete={() => handleClick('delete')}
-        />
+        <ActionButtons onEdit={() => {}} onDelete={() => {}} />
       ),
     },
   ];
@@ -121,10 +119,10 @@ const OrderPage = () => {
         ]}
       />
       <CustomTable columns={columns} dataSource={filteredData} />
-      <CustomButton onClick={() => handleClick('add')}>
+      <CustomButton onClick={() => openAddUserModal({ userId: null })}>
         <MdAdd />
       </CustomButton>
-      <Modal isOpen={isModalOpen} modalType={modalType} entity='order' />
+      <CustomModal />
     </section>
   );
 };
