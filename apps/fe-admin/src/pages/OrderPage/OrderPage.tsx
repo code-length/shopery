@@ -12,7 +12,7 @@ import ActionButtons from '../../components/ActionButtons/ActionButtons';
 import { dataSource } from '../../data';
 
 const OrderPage = () => {
-  const { openEditOrderModal, openDeleteModal } = useModal();
+  const { openEditOrderModal, openDeleteModal, closeModal } = useModal();
   const { control } = useForm({
     defaultValues: {
       search: '',
@@ -34,8 +34,35 @@ const OrderPage = () => {
       key: 'actions',
       render: (record) => (
         <ActionButtons
-          onEdit={() => openEditOrderModal({ orderId: record.id })}
-          onDelete={() => openDeleteModal({ orderId: record.id })}
+          onEdit={() =>
+            openEditOrderModal({
+              orderId: record.id,
+              totalNumberOfProducts: record.totalNumberOfProducts,
+              totalPrice: record.totalPrice,
+              status: record.status,
+              handleSave: (newStatus: string) => {
+                dataSource.forEach((item) => {
+                  if (item.id === record.id) {
+                    item.status = newStatus;
+                  }
+                });
+                closeModal();
+              },
+            })
+          }
+          onDelete={() =>
+            openDeleteModal({
+              handleConfirm: () => {
+                const index = dataSource.findIndex(
+                  (item) => item.id === record.id
+                );
+                if (index !== -1) {
+                  dataSource.splice(index, 1);
+                }
+                closeModal();
+              },
+            })
+          }
         />
       ),
     },

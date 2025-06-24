@@ -17,7 +17,7 @@ export const CustomModal = () => {
       footer={null}
       closable={true}
     >
-      <ModalComponent {...modalProps} onClose={closeModal} />
+      <ModalComponent {...modalProps} />
     </Modal>
   );
 };
