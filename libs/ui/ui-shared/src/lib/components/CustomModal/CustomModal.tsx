@@ -1,23 +1,34 @@
 import { Modal } from 'antd';
-import { useModalStore } from './modalStore';
-import { modalsMap } from './modalsMap';
 
-export const CustomModal = () => {
-  const { modalType, modalProps, closeModal } = useModalStore();
+export type CustomModalProps = {
+  children: React.ReactNode;
+  open: boolean;
+  onCancel?: () => void;
+  onOk?: () => void;
+  title?: string;
+  footer?: React.ReactNode | null;
+};
 
-  if (!modalType) return null;
-
-  const ModalComponent = modalsMap[modalType];
-  if (!ModalComponent) return null;
-
+export const CustomModal = ({
+  children,
+  open,
+  onCancel,
+  onOk,
+  title,
+  footer,
+  ...props
+}: CustomModalProps) => {
   return (
     <Modal
-      open={!!modalType}
-      onCancel={closeModal}
-      footer={null}
+      open={open}
+      title={title}
+      onCancel={onCancel}
+      onOk={onOk}
       closable={true}
+      footer={footer ?? null}
+      {...props}
     >
-      <ModalComponent {...modalProps} />
+      {children}
     </Modal>
   );
 };
