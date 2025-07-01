@@ -32,6 +32,14 @@
     color: $tertiary;
   }
 }
+.danger {
+  background-color: #ff101a;
+  border: none;
+  color: $white;
+  &:hover {
+    background-color: #ff4c4c;
+  }
+}
 .small {
   padding: 10px 24px;
   font-size: $font-size-xs;

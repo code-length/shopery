@@ -8,4 +8,4 @@ export interface UserType {
   role: string;
   createdAt: Date;
   updatedAt: Date;
-};
+}

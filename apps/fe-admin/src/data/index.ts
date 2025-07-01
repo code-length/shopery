@@ -1,1 +1,1 @@
-export { dataSource } from './OrderTableData'
+export { dataSource } from './OrderTableData';

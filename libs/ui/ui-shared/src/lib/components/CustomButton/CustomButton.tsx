@@ -4,7 +4,7 @@ import styles from './CustomButton.module.scss';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'fill' | 'border' | 'ghost';
+  variant?: 'fill' | 'border' | 'ghost' | 'danger';
   size?: 'small' | 'medium' | 'large';
 }
 

@@ -11,18 +11,11 @@ import ActionButtons from '../../components/ActionButtons/ActionButtons';
 import { dataSource } from '../../data';
 import styles from './OrderPage.module.scss';
 
-type ModalType = {
-  type: 'edit' | 'delete' | null;
-  orderId: number | null;
-};
-
 const OrderPage = () => {
   const [orderData, setOrderData] = useState(dataSource);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [ModalType, setModalType] = useState<ModalType>({
-    type: null,
-    orderId: null,
-  });
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [orderId, setOrderId] = useState<string | null>(null);
   const { control } = useForm({
     defaultValues: {
       search: '',
@@ -44,18 +37,22 @@ const OrderPage = () => {
       key: 'actions',
       render: (record) => (
         <ActionButtons
-          onEdit={() => {
-            setModalType({ type: 'edit', orderId: record.id });
-            setIsModalOpen(true);
-          }}
-          onDelete={() => {
-            setModalType({ type: 'delete', orderId: record.id });
-            setIsModalOpen(true);
-          }}
+          onEdit={() => handleOpenEditModal(record.id)}
+          onDelete={() => handleOpenDeleteModal(record.id)}
         />
       ),
     },
   ];
+
+  const handleOpenEditModal = (id: string) => {
+    setOrderId(id);
+    setIsEditModalOpen(true);
+  };
+
+  const handleOpenDeleteModal = (id: string) => {
+    setOrderId(id);
+    setIsDeleteModalOpen(true);
+  };
 
   const searchValue = useWatch({ control, name: 'search' });
   const debouncedSearch = useDeferredValue(searchValue?.trim() ?? '', 400);
@@ -63,13 +60,16 @@ const OrderPage = () => {
   const filteredData = orderData.filter((item) => {
     if (!debouncedSearch) return true;
     const searchStr = debouncedSearch.toLowerCase();
-    return (
-      String(item.id).includes(searchStr) ||
-      String(item.userId).includes(searchStr) ||
-      String(item.totalNumberOfProducts).includes(searchStr) ||
-      String(item.totalPrice).includes(searchStr) ||
-      String(item.status).toLowerCase().includes(searchStr)
-    );
+
+    const matchesSearch = [
+      item.id,
+      item.userId,
+      item.totalNumberOfProducts,
+      item.totalPrice,
+      item.status?.toLowerCase(),
+    ].some((field) => String(field).includes(searchStr));
+
+    return matchesSearch;
   });
 
   const handleDelete = (id: number) => {
@@ -104,32 +104,31 @@ const OrderPage = () => {
         ]}
       />
       <CustomTable columns={columns} dataSource={filteredData} />
-      {ModalType.type === 'edit' && (
-        <CustomModal open={isModalOpen} onCancel={() => setIsModalOpen(false)}>
-          <h2>Edit Order</h2>
-        </CustomModal>
-      )}
-      {ModalType.type === 'delete' && (
-        <CustomModal
-          open={isModalOpen}
-          onCancel={() => setIsModalOpen(false)}
-          title='Delete Order'
-          footer={
-            <CustomButton
-              style={{ backgroundColor: 'red' }}
-              onClick={() => {
-                setIsModalOpen(false);
-                handleDelete(ModalType.orderId as number);
-              }}
-            >
-              Delete
-            </CustomButton>
-          }
-        >
-          <h2>Delete Order</h2>
-          <p>Are you sure you want to delete this order?</p>
-        </CustomModal>
-      )}
+      <CustomModal
+        open={isEditModalOpen}
+        onCancel={() => setIsEditModalOpen(false)}
+        title='Edit Order'
+      >
+        <div>wow this is modal window</div>
+      </CustomModal>
+      <CustomModal
+        open={isDeleteModalOpen}
+        onCancel={() => setIsDeleteModalOpen(false)}
+        title='Delete Order'
+        footer={
+          <CustomButton
+            variant='danger'
+            onClick={() => {
+              setIsDeleteModalOpen(false);
+              handleDelete(orderId ? parseInt(orderId) : 0);
+            }}
+          >
+            Delete
+          </CustomButton>
+        }
+      >
+        <p>Are you sure you want to delete this order?</p>
+      </CustomModal>
     </section>
   );
 };
