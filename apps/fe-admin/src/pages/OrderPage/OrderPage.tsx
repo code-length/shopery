@@ -15,7 +15,8 @@ const OrderPage = () => {
   const [orderData, setOrderData] = useState(dataSource);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [orderId, setOrderId] = useState<string | null>(null);
+  const [orderId, setOrderId] = useState<number | null>(null);
+  const [editStatus, setEditStatus] = useState<string | null>(null);
   const { control } = useForm({
     defaultValues: {
       search: '',
@@ -37,19 +38,26 @@ const OrderPage = () => {
       key: 'actions',
       render: (record) => (
         <ActionButtons
-          onEdit={() => handleOpenEditModal(record.id)}
+          onEdit={() => handleOpenEditModal(record.id, record.status)}
           onDelete={() => handleOpenDeleteModal(record.id)}
         />
       ),
     },
   ];
 
-  const handleOpenEditModal = (id: string) => {
+  const statusOptions = [
+    { value: 'pending', label: 'Pending' },
+    { value: 'shipped', label: 'Shipped' },
+    { value: 'delivered', label: 'Delivered' },
+  ];
+
+  const handleOpenEditModal = (id: number, status: string) => {
     setOrderId(id);
     setIsEditModalOpen(true);
+    setEditStatus(status);
   };
 
-  const handleOpenDeleteModal = (id: string) => {
+  const handleOpenDeleteModal = (id: number) => {
     setOrderId(id);
     setIsDeleteModalOpen(true);
   };
@@ -74,7 +82,23 @@ const OrderPage = () => {
 
   const handleDelete = (id: number) => {
     setOrderData(orderData.filter((item) => item.id !== id));
-    setIsModalOpen(false);
+    setIsDeleteModalOpen(false);
+    setOrderId(null);
+  };
+
+  const handleSave = () => {
+    if (typeof editStatus !== 'string') return;
+    setOrderData((prev) =>
+      prev.map((item) => {
+        if (item.id === orderId) {
+          return { ...item, status: editStatus };
+        }
+        return item;
+      })
+    );
+    setIsEditModalOpen(false);
+    setEditStatus(null);
+    setOrderId(null);
   };
 
   return (
@@ -96,20 +120,24 @@ const OrderPage = () => {
       </form>
       <CustomSelect
         prefix='Filter by status:'
-        options={[
-          { value: 'all', label: 'All' },
-          { value: 'pending', label: 'Pending' },
-          { value: 'shipped', label: 'Shipped' },
-          { value: 'delivered', label: 'Delivered' },
-        ]}
+        options={[{ value: 'all', label: 'All' }, ...statusOptions]}
       />
       <CustomTable columns={columns} dataSource={filteredData} />
       <CustomModal
         open={isEditModalOpen}
         onCancel={() => setIsEditModalOpen(false)}
         title='Edit Order'
+        footer={
+          <CustomButton variant='fill' onClick={() => handleSave()}>
+            Save
+          </CustomButton>
+        }
       >
-        <div>wow this is modal window</div>
+        <CustomSelect
+          value={editStatus}
+          options={statusOptions}
+          onChange={(value: string) => setEditStatus(value)}
+        />
       </CustomModal>
       <CustomModal
         open={isDeleteModalOpen}
@@ -119,8 +147,7 @@ const OrderPage = () => {
           <CustomButton
             variant='danger'
             onClick={() => {
-              setIsDeleteModalOpen(false);
-              handleDelete(orderId ? parseInt(orderId) : 0);
+              handleDelete(orderId as number);
             }}
           >
             Delete
