@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@shopery/ui-shared';
+import { CustomButton } from '@shopery/ui-shared';
 import styles from './User.module.scss';
 import { User } from '../../types';
 import UserAvatarIcon from '@assets/icons/userAvatar.svg?react';
@@ -15,9 +15,9 @@ const UserComponent: React.FC<UserProps> = ({ user }) => {
         <p className={styles.userName}>{user.name}</p>
         <UserAvatarIcon className={styles.userIcon} />
       </div>
-      <Button size='small' variant='fill'>
+      <CustomButton size='small' variant='fill'>
         {'<- Log Out'}
-      </Button>
+      </CustomButton>
     </div>
   );
 };

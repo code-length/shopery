@@ -1,11 +1,11 @@
-import { Button } from '@shopery/ui-shared';
+import { CustomButton } from '@shopery/ui-shared';
 
 const DashboardPage = () => {
   return (
     <section>
-      <Button variant='fill' size='small'>
+      <CustomButton variant='fill' size='small'>
         Test
-      </Button>
+      </CustomButton>
     </section>
   );
 };

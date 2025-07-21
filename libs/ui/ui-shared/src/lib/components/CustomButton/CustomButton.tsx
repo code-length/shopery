@@ -1,14 +1,14 @@
 import { clsx } from 'clsx';
 import React, { ButtonHTMLAttributes } from 'react';
-import styles from './Button.module.scss';
+import styles from './CustomButton.module.scss';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string;
-  variant?: 'fill' | 'border' | 'ghost';
+  children: React.ReactNode;
+  variant?: 'fill' | 'border' | 'ghost' | 'danger';
   size?: 'small' | 'medium' | 'large';
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const CustomButton: React.FC<ButtonProps> = ({
   children,
   variant = 'fill',
   size = 'small',
@@ -30,4 +30,4 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export default Button;
+export default CustomButton;
