@@ -33,11 +33,11 @@
   }
 }
 .danger {
-  background-color: #ff101a;
+  background-color: $danger;
   border: none;
   color: $white;
   &:hover {
-    background-color: #ff4c4c;
+    filter: brightness(0.9);
   }
 }
 .small {
